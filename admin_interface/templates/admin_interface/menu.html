@@ -49,41 +49,13 @@
                 </button>
             </div>
             <nav :class="{'flex': open, 'hidden': !open}" class="ai_nav_items">
-                <div class="dropdown_container" x-data="{ open: false }" @click.away="open = false">
-                    <button class="" @click="open = !open">
-                        <span>Dropdown List</span>
-                        <svg :class="{'rotate-180': open, 'rotate-0': !open}" class="" fill="currentColor" viewBox="0 0 20 20">
-                            <path clip-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" fill-rule="evenodd"></path>
-                        </svg>
-                    </button>
-                    <div class="submenu" x-show="open" x-transition:enter="transition ease-out duration-100" x-transition:enter-end="transform opacity-100 scale-100" x-transition:enter-start="transform opacity-0 scale-95" x-transition:leave="transition ease-in duration-75" x-transition:leave-end="transform opacity-0 scale-95" x-transition:leave-start="transform opacity-100 scale-100">
-                        <div class="">
-                            <a class="submenu_item" href="#">Link #1</a>
-                            <a class="submenu_item" href="#">Link #2</a>
-                            <a class="submenu_item" href="#">Link #3</a>
-                        </div>
-                    </div>
-                </div>
-                <a class="ai_nav_item active" href="#">Blog</a>
-                <a class="ai_nav_item" href="#">Portfolio</a>
-                <a class="ai_nav_item" href="#">About</a>
-                <a class="ai_nav_item" href="#">Contact</a>
-                <div class="dropdown_container" x-data="{ open: false }" @click.away="open = false">
-                    <button class="" @click="open = !open">
-                        <span>Dropdown List</span>
-                        <svg :class="{'rotate-180': open, 'rotate-0': !open}" class="" fill="currentColor" viewBox="0 0 20 20">
-                            <path clip-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" fill-rule="evenodd"></path>
-                        </svg>
-                    </button>
-                    <div class="submenu" x-show="open" x-transition:enter="transition ease-out duration-100" x-transition:enter-end="transform opacity-100 scale-100" x-transition:enter-start="transform opacity-0 scale-95" x-transition:leave="transition ease-in duration-75" x-transition:leave-end="transform opacity-0 scale-95" x-transition:leave-start="transform opacity-100 scale-100">
-                        <div class="">
-                            <a class="submenu_item" href="#">Link #1</a>
-                            <a class="submenu_item" href="#">Link #2</a>
-                            <a class="submenu_item" href="#">Link #3</a>
-                        </div>
-                    </div>
-                </div>
-
+                {% if menu %}
+                    {% for parent_item in menu %}
+                        {% if not parent_item.align_right %}
+                            {% include 'admin_interface/menu_item.html' %}
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
             </nav>
         </div>
     </div>
