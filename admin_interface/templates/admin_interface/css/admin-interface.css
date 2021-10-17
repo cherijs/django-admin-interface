@@ -55,6 +55,10 @@ html.debug *:not(.Vue-Toastification__container) {
     --admin-interface-header-text-color: {{ theme.css_header_text_color }};
     --admin-interface-header-link-color: {{ theme.css_header_link_color }};
     --admin-interface-header-link_hover-color: {{ theme.css_header_link_hover_color }};
+    --admin-interface-header-menu-background-color: {{ theme.css_header_menu_background_color }};
+    --admin-interface-header-menu-link-color: {{ theme.css_header_menu_link_color }};
+    --admin-interface-header-menu-link-hover-color: {{ theme.css_header_menu_link_hover_color }};
+    --admin-interface-header-menu-link-hover-background-color: {{ theme.css_header_menu_link_hover_bg_color }};
     --admin-interface-module-background-color: {{ theme.css_module_background_color }};
     --admin-interface-module-background-selected-color: {{ theme.css_module_background_selected_color }};
     --admin-interface-module-text-color: {{ theme.css_module_text_color }};

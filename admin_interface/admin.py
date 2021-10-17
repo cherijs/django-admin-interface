@@ -65,6 +65,15 @@ class ThemeAdmin(admin.ModelAdmin):
                 'css_header_link_hover_color',
             )
         }),
+        (_('Menu'), {
+            'classes': ('wide',),
+            'fields': (
+                'css_header_menu_background_color',
+                'css_header_menu_link_color',
+                'css_header_menu_link_hover_color',
+                'css_header_menu_link_hover_bg_color',
+            )
+        }),
         (_('Breadcrumbs / Module headers'), {
             'classes': ('wide', ),
             'fields': (

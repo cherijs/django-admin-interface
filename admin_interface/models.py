@@ -178,6 +178,32 @@ class Theme(models.Model):
         max_length=10,
         verbose_name=_('link hover color'))
 
+
+    css_header_menu_background_color = ColorField(
+        blank=True,
+        default='#0C4B33',
+        help_text='#0C4B33',
+        max_length=10,
+        verbose_name=_('background color'))
+    css_header_menu_link_color = ColorField(
+        blank=True,
+        default='#44B78B',
+        help_text='#44B78B',
+        max_length=10,
+        verbose_name=_('link color'))
+    css_header_menu_link_hover_color = ColorField(
+        blank=True,
+        default='#C9F0DD',
+        help_text='#C9F0DD',
+        max_length=10,
+        verbose_name=_('link hover color'))
+    css_header_menu_link_hover_bg_color = ColorField(
+        blank=True,
+        default='#156641',
+        help_text='#156641',
+        max_length=10,
+        verbose_name=_('link hover background color'))
+
     css_module_background_color = ColorField(
         blank=True,
         default='#44B78B',

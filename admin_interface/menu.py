@@ -44,19 +44,19 @@ class MenuManager(object):
             ChildItem(model='demo.continent'),
             ChildItem(model='demo.showcase'),
             ChildItem('Custom view', url='/admin/custom/'),
-        ], icon='fa fa-leaf'),
+        ]),
         ParentItem('Integrations', children=[
             ChildItem(model='demo.city'),
         ]),
         ParentItem('Users', children=[
             ChildItem(model='auth.user'),
             ChildItem('User groups', 'auth.group'),
-        ], icon='fa fa-users'),
+        ]),
         ParentItem('Right Side Menu', children=[
             ChildItem('Password change', url='admin:password_change'),
             ChildItem('Open Google', url='http://google.com', target_blank=True),
 
-        ], align_right=True, icon='fa fa-cog'),
+        ], align_right=False),
     )
     def __init__(self, available_apps, context, request):
 
@@ -82,12 +82,6 @@ class MenuManager(object):
     def get_menu_items(self):
         if self.menu_items is None:
             self.menu_items = self.build_menu()
-            # if self.suit_config.menu_handler:
-            #     if not callable(self.suit_config.menu_handler):
-            #         raise TypeError('Django Suit "menu_handler" must callable')
-            #     self.menu_items = self.suit_config.menu_handler(
-            #         self.menu_items, self.request, self.context)
-
         return self.menu_items
 
     def build_menu(self):
@@ -123,7 +117,7 @@ class MenuManager(object):
                 if parent_item.align_right:
                     self.aligned_right_menu_items.append(parent_item)
 
-        # if self.suit_config.menu_show_home:
+        # if self.menu_show_home:
         home_item = ParentItem(_('Home'), url='admin:index', icon='fa fa-home')
         menu_items.insert(0, self.handle_user_url(home_item))
 
