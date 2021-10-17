@@ -29,6 +29,7 @@ https://github.com/fabiocaccamo/django-admin-interface
 {% include "admin_interface/css/tinymce.css" %}
 {% include "admin_interface/css/json-widget.css" %}
 {% include "admin_interface/css/rtl.css" %}
+{% include "admin_interface/css/nav-global.css" %}
 
 {% if theme.css %}
     {{ theme.css|safe }}
@@ -54,7 +55,7 @@ https://github.com/fabiocaccamo/django-admin-interface
 {% include "admin_interface/related-modal.html" %}
 {% endblock %}
 
-{% block bodyclass %}admin-interface flat-theme {% get_admin_interface_theme as theme %}{% if theme.name %}{{ theme.name|slugify }}-theme{% endif %}{% if theme.form_submit_sticky %} sticky-submit {% endif %}{% if theme.form_pagination_sticky %} sticky-pagination {% endif %}{% endblock %}
+{% block bodyclass %} admin-interface flat-theme {% get_admin_interface_theme as theme %}{% if theme.name %}{{ theme.name|slugify }}-theme{% endif %}{% if theme.form_submit_sticky %} sticky-submit {% endif %}{% if theme.form_pagination_sticky %} sticky-pagination {% endif %}{% endblock %}
 
 {% block branding %}
 {% get_admin_interface_theme as theme %}
@@ -72,6 +73,17 @@ https://github.com/fabiocaccamo/django-admin-interface
 </h1>
 {% endblock %}
 
+<<<<<<< Updated upstream
+=======
+{% block nav-global %}
+    </div>
+    <div id="nav-global">
+        {% include 'admin_interface/menu.html' %}
+    </div>
+    <div>
+{% endblock %}
+
+>>>>>>> Stashed changes
 {% block welcome-msg %}
 {% get_admin_interface_theme as theme %}
 {% if theme.language_chooser_active %}
