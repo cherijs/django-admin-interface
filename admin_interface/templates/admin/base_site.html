@@ -111,6 +111,7 @@
     <link rel="stylesheet" href="{% get_admin_interface_static 'admin_interface/css/third-party/sorl-thumbnail.css' %}">
     <link rel="stylesheet" href="{% get_admin_interface_static 'admin_interface/css/third-party/streamfield.css' %}">
     <link rel="stylesheet" href="{% get_admin_interface_static 'admin_interface/css/third-party/tinymce.css' %}">
+    <link rel="stylesheet" href="{% get_admin_interface_static 'admin_interface/css/third-party/nav-global.css' %}">
     <!-- end third-party packages compatibility / style optimizations -->
 
 {% if current_lang == 'fa' %}
@@ -180,6 +181,15 @@ admin-interface
     </a>
 </h1>
 {% endblock branding %}
+
+{% block nav-global %}
+    </div>
+    <div id="nav-global">
+        {% include 'admin_interface/menu.html' %}
+    </div>
+    <div>
+{% endblock %}
+
 
 {% block welcome-msg %}
 {% get_admin_interface_theme as theme %}
