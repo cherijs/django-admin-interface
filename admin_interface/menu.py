@@ -39,6 +39,7 @@ class ParentItem(ChildItem):
 
 class MenuManager(object):
     menu = None
+
     def __init__(self, available_apps, context, request):
         super(MenuManager, self).__init__()
         self.available_apps = available_apps
