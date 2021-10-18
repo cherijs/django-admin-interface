@@ -185,6 +185,13 @@ class Theme(models.Model):
         max_length=10,
         verbose_name=_('menu color'))
 
+    css_header_menu_accent_color = ColorField(
+        blank=True,
+        default='#0C3C26',
+        help_text='#0C3C26',
+        max_length=10,
+        verbose_name=_('menu accent color'))
+
     css_module_menu_enabled = models.BooleanField(
         default=True,
         verbose_name=_('show menu'))

@@ -69,6 +69,7 @@ class ThemeAdmin(admin.ModelAdmin):
             'classes': ('wide',),
             'fields': (
                 'css_header_menu_color',
+                'css_header_menu_accent_color',
                 'css_module_menu_enabled',
             )
         }),
