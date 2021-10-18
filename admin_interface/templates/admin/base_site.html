@@ -73,17 +73,10 @@ https://github.com/fabiocaccamo/django-admin-interface
 </h1>
 {% endblock %}
 
-<<<<<<< Updated upstream
-=======
 {% block nav-global %}
-    </div>
-    <div id="nav-global">
-        {% include 'admin_interface/menu.html' %}
-    </div>
-    <div>
+{% include 'admin_interface/menu.html' %}
 {% endblock %}
 
->>>>>>> Stashed changes
 {% block welcome-msg %}
 {% get_admin_interface_theme as theme %}
 {% if theme.language_chooser_active %}

@@ -1,62 +1,52 @@
 {% load i18n menu_tags %}
 {% get_menu request as menu %}
-<script defer src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"></script>
+{% if menu %}
+    <script defer src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"></script>
 
-{#<div id="suit-nav">#}
-{#    <ul>#}
-{#        {% if menu %}#}
-{#            {% for parent_item in menu %}#}
-{#                {% if not parent_item.align_right %}#}
-{#                    {% include 'admin_interface/menu_item.html' %}#}
-{#                {% endif %}#}
-{#            {% endfor %}#}
-{#        {% endif %}#}
-{#    </ul>#}
-{#    {% if menu.aligned_right_menu_items %}#}
-{#        <ul class="suit-nav-right">#}
-{#            {% for parent_item in menu.aligned_right_menu_items %}#}
-{#                {% include 'admin_interface/menu_item.html' %}#}
-{#            {% endfor %}#}
-{#        </ul>#}
-{#    {% endif %}#}
-{#</div>#}
-{#{% if menu and menu.active_parent_item %}#}
-{#    <div id="suit-sub-nav">#}
-{#        <ul>#}
-{#            {% for child_item in menu.active_parent_item.children %}#}
-{#                <li{{ child_item.is_active|yesno:' class=active,' }}>#}
-{#                    <a href="{{ child_item.url }}"#}
-{#                            {{ child_item.target_blank|yesno:' target=_blank,' }}>{{ child_item.label }}</a>#}
-{#                </li>#}
-{#            {% endfor %}#}
-{#        </ul>#}
-{#    </div>#}
-{#{% endif %}#}
-
-
-<div id="admin_interface_menu" class="admin-interface" x-data="{ open: true }">
-    <div class="ai_nav" x-show="open === true">
-        <div class="ai_nav_container" x-data="{ open: false }">
-            <div class="ai_nav_mobile_btn_container">
-                <div>
-                    <!--                    <a class="" href="#">LOGO</a>-->
-                </div>
-                <button class="burger" @click="open = !open">
-                    <svg class="" fill="currentColor" viewBox="0 0 20 20">
-                        <path clip-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z" fill-rule="evenodd" x-show="!open"></path>
-                        <path clip-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" fill-rule="evenodd" x-show="open"></path>
-                    </svg>
-                </button>
-            </div>
-            <nav :class="{'flex': open, 'hidden': !open}" class="ai_nav_items">
-                {% if menu %}
-                    {% for parent_item in menu %}
-                        {% if not parent_item.align_right %}
-                            {% include 'admin_interface/menu_item.html' %}
+    </div>
+    <div id="nav-global-main-menu">
+        <div id="admin_interface_main_menu" class="admin-interface" x-data="{ open: true }">
+            <div class="ai_nav" x-show="open === true">
+                <div class="ai_nav_container" x-data="{ open: false }">
+                    <div class="ai_nav_mobile_btn_container">
+                        <div>
+                            <!--                    <a class="" href="#">LOGO</a>-->
+                        </div>
+                        <button class="burger" @click="open = !open">
+                            <svg class="" fill="currentColor" viewBox="0 0 20 20">
+                                <path clip-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z" fill-rule="evenodd" x-show="!open"></path>
+                                <path clip-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" fill-rule="evenodd" x-show="open"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <nav :class="{'flex': open, 'hidden': !open}" class="ai_nav_items">
+                        {% if menu %}
+                            {% for parent_item in menu %}
+                                {% if not parent_item.align_right %}
+                                    {% include 'admin_interface/menu_item.html' %}
+                                {% endif %}
+                            {% endfor %}
                         {% endif %}
-                    {% endfor %}
-                {% endif %}
-            </nav>
+                    </nav>
+                </div>
+            </div>
         </div>
     </div>
-</div>
+
+    {% if menu and menu.active_parent_item %}
+        <div id="nav-global-sub-menu">
+            <div id="admin_interface_sub_nav">
+                <nav :class="{'flex': open, 'hidden': !open}" class="ai_nav_items">
+                    {% for child_item in menu.active_parent_item.children %}
+                        <a class="ai_sub_nav_item {{ child_item.is_active|yesno:' active,' }}"
+                           href="{{ child_item.url }}" {{ child_item.target_blank|yesno:' target=_blank,' }}>
+                            <span>{% trans child_item.label|capfirst %}</span>
+                        </a>
+                    {% endfor %}
+                </nav>
+            </div>
+        </div>
+    {% endif %}
+
+    <div>
+{% endif %}
