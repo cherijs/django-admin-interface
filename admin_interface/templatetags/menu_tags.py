@@ -2,8 +2,10 @@ import logging
 
 import django
 from django import template
+from django.conf import settings
 from django.contrib.admin import AdminSite
 from django.http import HttpRequest
+from django.utils.module_loading import import_string
 
 from admin_interface.menu import MenuManager
 
@@ -23,10 +25,19 @@ else:
 @simple_tag(takes_context=True)
 def get_menu(context, request):
     """
+    :param context:
     :type request: WSGIRequest
     """
     if not isinstance(request, HttpRequest):
         return None
+
+    is_enabled =False
+
+    if hasattr(settings, "ADMIN_INTERFACE_ENABLE_MENU"):
+        is_enabled = settings.ADMIN_INTERFACE_ENABLE_MENU
+
+    if not is_enabled:
+        return
 
     # Django 1.9+
     available_apps = context.get('available_apps')
@@ -45,8 +56,11 @@ def get_menu(context, request):
                 pass
 
     if not available_apps:
-        logging.warn('Django Suit was unable to retrieve apps list for menu.')
+        logging.warn('Django was unable to retrieve apps list for menu.')
 
+    if hasattr(settings, "ADMIN_INTERFACE_MENU"):
+        menu_class = import_string(settings.ADMIN_INTERFACE_MENU)
+        return menu_class(available_apps, context, request)
     return MenuManager(available_apps, context, request)
 
 

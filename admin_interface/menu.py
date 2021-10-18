@@ -38,38 +38,13 @@ class ParentItem(ChildItem):
 
 
 class MenuManager(object):
-    menu = (
-        ParentItem('Content', children=[
-            ChildItem(model='demo.country'),
-            ChildItem(model='demo.continent'),
-            ChildItem(model='demo.showcase'),
-            ChildItem('Custom view', url='/admin/custom/'),
-        ]),
-        ParentItem('Integrations', children=[
-            ChildItem(model='demo.city'),
-        ]),
-        ParentItem('Users', children=[
-            ChildItem(model='auth.user'),
-            ChildItem('User groups', 'auth.group'),
-        ]),
-        ParentItem('Right Side Menu', children=[
-            ChildItem('Password change', url='admin:password_change'),
-            ChildItem('Open Google', url='http://google.com', target_blank=True),
-
-        ], align_right=False),
-    )
+    menu = None
     def __init__(self, available_apps, context, request):
-
         super(MenuManager, self).__init__()
-
-        # Variable available_apps structure:
-        # https://docs.djangoproject.com/en/1.9/ref/contrib/admin/#adminsite-methods
         self.available_apps = available_apps
-
         self.context = context
         self.request = request
         self.current_app = get_current_app(request)
-        self.user_menu = self.menu
         self.menu_items = None
         self.aligned_right_menu_items = []
         self.active_parent_item = None
@@ -85,15 +60,15 @@ class MenuManager(object):
         return self.menu_items
 
     def build_menu(self):
-        if not self.user_menu:
+        if not self.menu:
             self.map_native_apps()
             return self.mark_active(self.build_menu_by_available_apps())
 
         self.map_native_apps()
 
         menu_items = []
-        user_menu = deepcopy(self.user_menu)
-        for parent_item in user_menu:
+        menu = deepcopy(self.menu)
+        for parent_item in menu:
             native_app = self.find_native_app(parent_item)
             if parent_item.user_children:
                 for child_item in parent_item.user_children:

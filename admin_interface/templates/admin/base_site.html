@@ -183,13 +183,8 @@ admin-interface
 {% endblock branding %}
 
 {% block nav-global %}
-    </div>
-    <div id="nav-global">
-        {% include 'admin_interface/menu.html' %}
-    </div>
-    <div>
+{% include 'admin_interface/menu.html' %}
 {% endblock %}
-
 
 {% block welcome-msg %}
 {% get_admin_interface_theme as theme %}

@@ -2,7 +2,7 @@
 
 {% if parent_item.children and not parent_item.is_active %}
     <div class="dropdown_container" x-data="{ open: false }" @click.away="open = false">
-        <button class="{{ parent_item.is_active|yesno:' active,' }}" @click="open = !open">
+        <button class="ai_nav_item {{ parent_item.is_active|yesno:' active,' }}" @click="open = !open">
 {#             <i class="{% firstof parent_item.icon 'fa fa-chevron-right' %}"></i>#}
             <span>{% trans parent_item.label|capfirst %}</span>
             <svg :class="{'rotate-180': open, 'rotate-0': !open}" class="" fill="currentColor" viewBox="0 0 20 20">
@@ -11,10 +11,10 @@
         </button>
         <div class="submenu" x-show="open" x-transition:enter="transition ease-out duration-100" x-transition:enter-end="transform opacity-100 scale-100" x-transition:enter-start="transform opacity-0 scale-95" x-transition:leave="transition ease-in duration-75" x-transition:leave-end="transform opacity-0 scale-95" x-transition:leave-start="transform opacity-100 scale-100">
             <div class="">
-                <a class="submenu_item {{ parent_item.is_active|yesno:' class=active,' }}" href="{{ parent_item.url }}"
-                        {{ parent_item.target_blank|yesno:' target=_blank,' }}>
-                    {{ parent_item.label }}
-                </a>
+{#                <a class="submenu_item {{ parent_item.is_active|yesno:' class=active,' }}" href="{{ parent_item.url }}"#}
+{#                        {{ parent_item.target_blank|yesno:' target=_blank,' }}>#}
+{#                    {{ parent_item.label }}#}
+{#                </a>#}
                 {% for child_item in parent_item.children %}
                     <a class="submenu_item
                             {{ child_item.is_active|yesno:' class=active,' }}" href="{{ child_item.url }}"
@@ -28,7 +28,7 @@
 {% else %}
     <a class="ai_nav_item {{ parent_item.is_active|yesno:' active,' }}" href="{{ parent_item.url }}"
             {{ parent_item.target_blank|yesno:' target=_blank,' }}>
-        {% trans parent_item.label|capfirst %}
+        <span>{% trans parent_item.label|capfirst %}</span>
     </a>
 {% endif %}
 
