@@ -1,27 +1,29 @@
+/*@f:off*/
 {% load menu_tags %}
+/*@f:on*/
 
 body.debug *,
 html.debug * {
     box-shadow: 0 0 0 1px rgba(255, 56, 189, 0.25);
 }
 
-
+/*@f:off*/
 :root .admin-interface {
     --admin-interface-css-header-menu-border-color: {{ theme.css_header_menu_color }};
     --admin-interface-css-header-sub-menu-border-color: {% color_variant theme.css_header_menu_color 10 %};
     --admin-interface-css-header-menu-background-color: {% color_variant theme.css_header_menu_color 15 %};
     --admin-interface-css-header-menu-sub-nav-background-color: {% color_variant theme.css_header_menu_color 30 %};
 
-    --admin-interface-css-header-menu-active-color: {% color_variant theme.css_module_background_color 0 %};
+    --admin-interface-css-header-menu-accent-color: {{ theme.css_header_menu_accent_color }};
     --admin-interface-css-header-sub-menu-link-color: {% color_variant theme.css_module_background_color 5 %};
 
     --admin-interface-css-header-menu-link-color: {% color_variant theme.css_header_menu_color 120 %};
-    --admin-interface-css-header-menu-hover-color: {% color_variant theme.css_header_text_color 0 %};
+    --admin-interface-css-header-menu-hover-color: {{ theme.css_header_text_color }};
 
     --admin-interface-css-header-menu-link-hover-color: var(--admin-interface-css-header-menu-hover-color);
     --admin-interface-css-header-menu-link-active-color: var(--admin-interface-css-header-menu-background-color);
 }
-
+/*@f:on*/
 
 #suit-nav {
     -ms-flex-preferred-size: 100%;
@@ -87,6 +89,7 @@ html.debug * {
 #suit-nav > ul > li:first-child > a {
 
 }
+
 #suit-nav > ul > li > a {
     cursor: pointer;
     position: relative;
@@ -94,6 +97,7 @@ html.debug * {
     border-left: 1px solid var(--admin-interface-css-header-menu-border-color);
 
 }
+
 #suit-nav > ul > li > a:after {
     content: '';
     position: absolute;
@@ -103,6 +107,7 @@ html.debug * {
     left: 0;
     border-right: 1px solid var(--admin-interface-css-header-menu-border-color);
 }
+
 #suit-nav > ul > li:last-child > a {
     border-right: 1px solid var(--admin-interface-css-header-menu-border-color);
 }
@@ -111,7 +116,7 @@ html.debug * {
     background-color: white;
     color: var(--admin-interface-css-header-menu-link-active-color);
     font-weight: bold;
-    box-shadow: inset 0 3px 0 var(--admin-interface-css-header-menu-active-color);
+    box-shadow: inset 0 3px 0 var(--admin-interface-css-header-menu-accent-color);
 }
 
 #suit-nav > ul > li.active a:hover {
@@ -136,14 +141,12 @@ html.debug * {
     background-color: var(--admin-interface-css-header-menu-background-color);
     position: absolute;
     min-width: 180px;
-    box-shadow:
-            0px 2.8px 2.2px rgba(0, 0, 0, 0.02),
-            0px 6.7px 5.3px rgba(0, 0, 0, 0.028),
-            0px 12.5px 10px rgba(0, 0, 0, 0.035),
-            0px 22.3px 17.9px rgba(0, 0, 0, 0.042),
-            0px 41.8px 33.4px rgba(0, 0, 0, 0.05),
-            0px 100px 80px rgba(0, 0, 0, 0.07)
-;
+    box-shadow: 0px 2.8px 2.2px rgba(0, 0, 0, 0.02),
+    0px 6.7px 5.3px rgba(0, 0, 0, 0.028),
+    0px 12.5px 10px rgba(0, 0, 0, 0.035),
+    0px 22.3px 17.9px rgba(0, 0, 0, 0.042),
+    0px 41.8px 33.4px rgba(0, 0, 0, 0.05),
+    0px 100px 80px rgba(0, 0, 0, 0.07);
 }
 
 #suit-nav > ul > li > ul > li > a {
@@ -154,6 +157,7 @@ html.debug * {
     border-left: 1px solid var(--admin-interface-css-header-menu-border-color);
 
 }
+
 #suit-nav > ul > li > ul > li:last-of-type > a {
     border-bottom: none;
 }
@@ -197,11 +201,13 @@ html.debug * {
     padding: 0.80128rem 4px;
     margin: 2px 0.5rem -3px;
 }
+
 #suit-sub-nav ul > li.active a {
     color: var(--admin-interface-css-header-menu-link-active-color);
-    border-bottom: 3px solid var(--admin-interface-css-header-menu-active-color);
+    border-bottom: 3px solid var(--admin-interface-css-header-menu-accent-color);
     font-weight: bold;
 }
+
 #suit-sub-nav ul > li:first-child a {
     margin-left: 0;
 }
