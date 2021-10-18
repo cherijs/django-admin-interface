@@ -7,15 +7,15 @@ html.debug * {
 
 
 :root .admin-interface {
-    --admin-interface-css-header-menu-border-color: {% color_variant theme.css_header_background_color 0 %};
-    --admin-interface-css-header-sub-menu-border-color: {% color_variant theme.css_header_background_color 10 %};
-    --admin-interface-css-header-menu-background-color: {% color_variant theme.css_header_background_color 15 %};
-    --admin-interface-css-header-menu-sub-nav-background-color: {% color_variant theme.css_header_background_color 30 %};
+    --admin-interface-css-header-menu-border-color: {{ theme.css_header_menu_color }};
+    --admin-interface-css-header-sub-menu-border-color: {% color_variant theme.css_header_menu_color 10 %};
+    --admin-interface-css-header-menu-background-color: {% color_variant theme.css_header_menu_color 15 %};
+    --admin-interface-css-header-menu-sub-nav-background-color: {% color_variant theme.css_header_menu_color 30 %};
 
     --admin-interface-css-header-menu-active-color: {% color_variant theme.css_module_background_color 0 %};
     --admin-interface-css-header-sub-menu-link-color: {% color_variant theme.css_module_background_color 5 %};
 
-    --admin-interface-css-header-menu-link-color: {% color_variant theme.css_header_text_color -50 %};
+    --admin-interface-css-header-menu-link-color: {% color_variant theme.css_header_menu_color 120 %};
     --admin-interface-css-header-menu-hover-color: {% color_variant theme.css_header_text_color 0 %};
 
     --admin-interface-css-header-menu-link-hover-color: var(--admin-interface-css-header-menu-hover-color);
