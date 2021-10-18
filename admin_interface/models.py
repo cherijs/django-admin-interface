@@ -178,16 +178,16 @@ class Theme(models.Model):
         max_length=10,
         verbose_name=_('link hover color'))
 
-    # css_header_menu_color = ColorField(
-    #     blank=True,
-    #     default='#0C4B33',
-    #     help_text='#0C4B33',
-    #     max_length=10,
-    #     verbose_name=_('menu color'))
-    #
-    # css_module_menu_enabled = models.BooleanField(
-    #     default=True,
-    #     verbose_name=_('show menu'))
+    css_header_menu_color = ColorField(
+        blank=True,
+        default='#0C4B33',
+        help_text='#0C4B33',
+        max_length=10,
+        verbose_name=_('menu color'))
+
+    css_module_menu_enabled = models.BooleanField(
+        default=True,
+        verbose_name=_('show menu'))
 
     css_module_background_color = ColorField(
         blank=True,
