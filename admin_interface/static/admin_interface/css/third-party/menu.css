@@ -46,10 +46,26 @@ html.debug * {
 }
 
 @media (max-width: 767px) {
-    #suit-nav > ul {
-        margin: 0;
+
+    #suit-nav {
+        overflow: scroll;
     }
+    #suit-nav ul li a {
+        white-space: nowrap;
+    }
+    #suit-nav ul li.has-children:hover .sub-nav {
+        display: none;
+    }
+
 }
+
+
+#suit-nav > ul {
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+}
+
 
 #suit-nav ul {
     list-style: none !important;
