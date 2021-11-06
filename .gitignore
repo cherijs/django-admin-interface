@@ -56,3 +56,4 @@ docs/_build/
 target/
 screenshots
 TODO.txt
+.DS_Store
