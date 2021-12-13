@@ -78,6 +78,8 @@ html.debug * {
 
 #suit-sub-nav ul {
     list-style: none !important;
+        display: flex;
+    flex-direction: row;
 }
 
 #suit-sub-nav ul > li {
@@ -195,7 +197,7 @@ html.debug * {
     -ms-flex-preferred-size: 100%;
     flex-basis: 100%;
     display: block;
-    background-color: var(--admin-interface-css-header-menu-sub-nav-background-color);
+    /*background-color: var(--admin-interface-css-header-menu-sub-nav-background-color);*/
     /*box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.15);*/
 }
 
@@ -215,12 +217,12 @@ html.debug * {
     display: block;
     float: left;
     padding: 0.80128rem 4px;
-    margin: 2px 0.5rem -3px;
+    margin: 2px 0.5rem;
 }
 
 #suit-sub-nav ul > li.active a {
     color: var(--admin-interface-css-header-menu-link-active-color);
-    border-bottom: 3px solid var(--admin-interface-css-header-menu-accent-color);
+/*    border-bottom: 3px solid var(--admin-interface-css-header-menu-accent-color);*/
     font-weight: bold;
 }
 
@@ -230,3 +232,13 @@ html.debug * {
 
 
 
+@media (max-width: 767px) {
+
+    #suit-sub-nav {
+        overflow: scroll;
+    }
+    #suit-sub-nav ul li a {
+        white-space: nowrap;
+    }
+
+}
