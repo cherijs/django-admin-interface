@@ -30,6 +30,7 @@
                 {% for child_item in menu.active_parent_item.children %}
                     <li{{ child_item.is_active|yesno:' class=active,' }}>
                         <a href="{{ child_item.url }}"
+                                {%if child_item.attrs%}{% for name, value in child_item.attrs.items %}{% if value is not False %} {{ name }}{% if value is not True %}="{{ value|stringformat:'s' }}"{% endif %}{% endif %}{% endfor %}{%endif%}
                                 {{ child_item.target_blank|yesno:' target=_blank,' }}>{{ child_item.label }}</a>
                     </li>
                 {% endfor %}
