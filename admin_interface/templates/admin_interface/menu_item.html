@@ -35,6 +35,7 @@
 
 <li class="{{ parent_item.is_active|yesno:' active,' }}{{ parent_item.children|yesno:' has-children,' }}">
     <a href="{{ parent_item.url }}"
+            {%if parent_item.attrs%}{% for name, value in parent_item.attrs.items %}{% if value is not False %} {{ name }}{% if value is not True %}="{{ value|stringformat:'s' }}"{% endif %}{% endif %}{% endfor %}{%endif%}
             {{ parent_item.target_blank|yesno:' target=_blank,' }}>{% if suit_layout == 'vertical' %}<i class="{% firstof parent_item.icon 'fa fa-chevron-right' %}"></i>{% endif %}{% trans parent_item.label|capfirst %}
     </a>
     {% if parent_item.children %}
@@ -42,7 +43,7 @@
             <ul class="sub-nav">
                 {% for child_item in parent_item.children %}
                     <li{{ child_item.is_active|yesno:' class=active,' }}>
-                        <a href="{{ child_item.url }}"
+                        <a href="{{ child_item.url }}" {%if child_item.attrs%}{% for name, value in child_item.attrs.items %}{% if value is not False %} {{ name }}{% if value is not True %}="{{ value|stringformat:'s' }}"{% endif %}{% endif %}{% endfor %}{%endif%}
                                 {{ child_item.target_blank|yesno:' target=_blank,' }}>{{ child_item.label }}</a>
                     </li>
                 {% endfor %}

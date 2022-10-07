@@ -5,10 +5,11 @@ from django.utils.translation import gettext_lazy as _
 
 
 class ChildItem(object):
-    def __init__(self, label=None, model=None, url=None, target_blank=False, permissions=None):
+    def __init__(self, label=None, model=None, url=None, target_blank=False, permissions=None, attrs=None):
         self.label = label
         self.model = model
         self.url = url
+        self.attrs = attrs
         self.target_blank = target_blank
         self.permissions = permissions
         self.is_active = None
@@ -24,7 +25,7 @@ class ChildItem(object):
 
 class ParentItem(ChildItem):
     def __init__(self, label=None, app=None, url=None, target_blank=False, permissions=None,
-                 children=None, align_right=False, use_first_child_url=True, icon=None):
+                 children=None, align_right=False, use_first_child_url=True, icon=None, attrs=None):
         super(ParentItem, self).__init__(label, None, url, target_blank, permissions)
         self.user_children = children or []
         self.children = []
@@ -32,6 +33,7 @@ class ParentItem(ChildItem):
         self.icon = icon
         self.app = app
         self.use_first_child_url = use_first_child_url
+        self.attrs = attrs
 
     def _key(self):
         return self.app
