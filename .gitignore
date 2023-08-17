@@ -5,6 +5,10 @@ __pycache__/
 # C extensions
 *.so
 
+## Local setup
+.vscode/
+.venv/
+
 # Distribution / packaging
 .Python
 env/
@@ -57,3 +61,5 @@ target/
 screenshots
 TODO.txt
 .DS_Store
+
+.idea/
