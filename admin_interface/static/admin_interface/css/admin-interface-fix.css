@@ -65,6 +65,14 @@
     text-transform: uppercase;
 }
 
+.admin-interface .submit-row{
+    flex-direction: row-reverse;
+}
+.admin-interface .submit-row a.deletelink {
+    margin-left: unset !important;
+    margin-right: auto;
+}
+
 .admin-interface.login #footer {
     display: none;
 }

@@ -1,29 +1,7 @@
-/*@f:off*/
-{% load menu_tags %}
-/*@f:on*/
-
 body.debug *,
 html.debug * {
     box-shadow: 0 0 0 1px rgba(255, 56, 189, 0.25);
 }
-
-/*@f:off*/
-:root .admin-interface {
-    --admin-interface-css-header-menu-border-color: {{ theme.css_header_menu_color }};
-    --admin-interface-css-header-sub-menu-border-color: {% color_variant theme.css_header_menu_color 10 %};
-    --admin-interface-css-header-menu-background-color: {% color_variant theme.css_header_menu_color 15 %};
-    --admin-interface-css-header-menu-sub-nav-background-color: {% color_variant theme.css_header_menu_color 30 %};
-
-    --admin-interface-css-header-menu-accent-color: {{ theme.css_header_menu_accent_color }};
-    --admin-interface-css-header-sub-menu-link-color: {% color_variant theme.css_module_background_color 5 %};
-
-    --admin-interface-css-header-menu-link-color: {% color_variant theme.css_header_menu_color 120 %};
-    --admin-interface-css-header-menu-hover-color: {{ theme.css_header_text_color }};
-
-    --admin-interface-css-header-menu-link-hover-color: var(--admin-interface-css-header-menu-hover-color);
-    --admin-interface-css-header-menu-link-active-color: var(--admin-interface-css-header-menu-background-color);
-}
-/*@f:on*/
 
 #suit-nav {
     -ms-flex-preferred-size: 100%;
