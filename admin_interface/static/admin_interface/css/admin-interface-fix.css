@@ -311,6 +311,11 @@ body.admin-interface .paginator a.showall:visited {
 /* begin fix issue #13 - Datetime widget broken in long inlines */
 .admin-interface p.datetime {
     white-space:nowrap;
+    display: flex;
+    align-items: center;
+    br {
+        display: none;
+    }
 }
 /* end fix */
 
