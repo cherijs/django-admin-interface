@@ -21,9 +21,18 @@ if (typeof(django) !== 'undefined' && typeof(django.jQuery) !== 'undefined')
                 var collapseToggleHTML = ' (<a class="collapse-toggle" href="#">' + collapseToggleText + '</a>)';
                 var headerEl = fieldsetEl.find('> h2,> h3');
                 if (headerEl.find(".collapse-toggle").length === 0) {
-                    // don't add collapse toggle button if already present
                     headerEl.append(collapseToggleHTML);
                 }
+                headerEl.find('.collapse-toggle').on('click', function(e) {
+                    e.preventDefault();
+                    if (fieldsetEl.hasClass('collapsed')) {
+                        fieldsetEl.removeClass('collapsed');
+                        $(this).text(gettext('Hide'));
+                    } else {
+                        fieldsetEl.addClass('collapsed');
+                        $(this).text(gettext('Show'));
+                    }
+                });
             }
 
             var stackedInlinesOptionSel = '.admin-interface.collapsible-stacked-inlines';
@@ -32,7 +41,7 @@ if (typeof(django) !== 'undefined' && typeof(django.jQuery) !== 'undefined')
 
             var tabularInlinesOptionSel = '.admin-interface.collapsible-tabular-inlines';
             var tabularInlinesSel = tabularInlinesOptionSel + ' .inline-group[data-inline-type="tabular"] .inline-related.tabular';
-            var tabularInlinesCollapsed = $(stackedInlinesOptionSel).hasClass('collapsible-tabular-inlines-collapsed');
+            var tabularInlinesCollapsed = $(tabularInlinesOptionSel).hasClass('collapsible-tabular-inlines-collapsed');
 
             $(stackedInlinesSel).each(function() {
                 collapsibleInline(this, stackedInlinesCollapsed);

@@ -410,7 +410,6 @@
         flex-direction: column;
         overflow-y: auto;
         scrollbar-width: thin;
-        height: 100%;
         max-height: calc(100vh - 60px);
     }
     .admin-interface.list-filter-sticky.sticky-pagination .module.filtered #changelist-filter {
