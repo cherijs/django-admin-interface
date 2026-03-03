@@ -1,3 +1,17 @@
-# -*- coding: utf-8 -*-
+from admin_interface.metadata import (
+    __author__,
+    __copyright__,
+    __description__,
+    __license__,
+    __title__,
+    __version__,
+)
 
-default_app_config = 'admin_interface.apps.AdminInterfaceConfig'
+__all__ = [
+    "__author__",
+    "__copyright__",
+    "__description__",
+    "__license__",
+    "__title__",
+    "__version__",
+]

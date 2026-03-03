@@ -1,184 +1,258 @@
-# -*- coding: utf-8 -*-
-
-from __future__ import unicode_literals
-
-from django.db import models, migrations
-
 import colorfield.fields
+from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='Theme',
+            name="Theme",
             fields=[
-                ('id',
+                (
+                    "id",
                     models.AutoField(
-                        verbose_name='ID',
+                        verbose_name="ID",
                         serialize=False,
                         auto_created=True,
-                        primary_key=True)),
-                ('name',
+                        primary_key=True,
+                    ),
+                ),
+                (
+                    "name",
                     models.CharField(
-                        default=b'Django',
-                        max_length=50)),
-                ('active',
-                    models.BooleanField(
-                        default=True)),
-                ('title',
-                    models.CharField(
-                        default=b'Django administration',
+                        default="Django",
                         max_length=50,
-                        blank=True)),
-                ('title_visible',
+                    ),
+                ),
+                (
+                    "active",
                     models.BooleanField(
                         default=True,
-                        verbose_name=b'visible')),
-                ('logo',
+                    ),
+                ),
+                (
+                    "title",
+                    models.CharField(
+                        default="Django administration",
+                        max_length=50,
+                        blank=True,
+                    ),
+                ),
+                (
+                    "title_visible",
+                    models.BooleanField(
+                        default=True,
+                        verbose_name="visible",
+                    ),
+                ),
+                (
+                    "logo",
                     models.FileField(
-                        upload_to=b'admin-interface/logo/',
-                        blank=True)),
-                ('logo_visible',
+                        upload_to="admin-interface/logo/",
+                        blank=True,
+                    ),
+                ),
+                (
+                    "logo_visible",
                     models.BooleanField(
                         default=True,
-                        verbose_name=b'visible')),
-                ('css_header_background_color',
+                        verbose_name="visible",
+                    ),
+                ),
+                (
+                    "css_header_background_color",
                     colorfield.fields.ColorField(
-                        default=b'#0C4B33',
-                        help_text=b'#0C4B33',
+                        default="#0C4B33",
+                        help_text="#0C4B33",
                         max_length=10,
-                        verbose_name=b'background color',
-                        blank=True)),
-                ('css_header_title_color',
+                        verbose_name="background color",
+                        blank=True,
+                    ),
+                ),
+                (
+                    "css_header_title_color",
                     colorfield.fields.ColorField(
-                        default=b'#F5DD5D',
-                        help_text=b'#F5DD5D',
+                        default="#F5DD5D",
+                        help_text="#F5DD5D",
                         max_length=10,
-                        verbose_name=b'title color',
-                        blank=True)),
-                ('css_header_text_color',
+                        verbose_name="title color",
+                        blank=True,
+                    ),
+                ),
+                (
+                    "css_header_text_color",
                     colorfield.fields.ColorField(
-                        default=b'#44B78B',
-                        help_text=b'#44B78B',
+                        default="#44B78B",
+                        help_text="#44B78B",
                         max_length=10,
-                        verbose_name=b'text color',
-                        blank=True)),
-                ('css_header_link_color',
+                        verbose_name="text color",
+                        blank=True,
+                    ),
+                ),
+                (
+                    "css_header_link_color",
                     colorfield.fields.ColorField(
-                        default=b'#FFFFFF',
-                        help_text=b'#FFFFFF',
+                        default="#FFFFFF",
+                        help_text="#FFFFFF",
                         max_length=10,
-                        verbose_name=b'link color',
-                        blank=True)),
-                ('css_header_link_hover_color',
+                        verbose_name="link color",
+                        blank=True,
+                    ),
+                ),
+                (
+                    "css_header_link_hover_color",
                     colorfield.fields.ColorField(
-                        default=b'#C9F0DD',
-                        help_text=b'#C9F0DD',
+                        default="#C9F0DD",
+                        help_text="#C9F0DD",
                         max_length=10,
-                        verbose_name=b'link hover color',
-                        blank=True)),
-                ('css_module_background_color',
+                        verbose_name="link hover color",
+                        blank=True,
+                    ),
+                ),
+                (
+                    "css_module_background_color",
                     colorfield.fields.ColorField(
-                        default=b'#44B78B',
-                        help_text=b'#44B78B',
+                        default="#44B78B",
+                        help_text="#44B78B",
                         max_length=10,
-                        verbose_name=b'background color',
-                        blank=True)),
-                ('css_module_text_color',
+                        verbose_name="background color",
+                        blank=True,
+                    ),
+                ),
+                (
+                    "css_module_text_color",
                     colorfield.fields.ColorField(
-                        default=b'#FFFFFF',
-                        help_text=b'#FFFFFF',
+                        default="#FFFFFF",
+                        help_text="#FFFFFF",
                         max_length=10,
-                        verbose_name=b'text color',
-                        blank=True)),
-                ('css_module_link_color',
+                        verbose_name="text color",
+                        blank=True,
+                    ),
+                ),
+                (
+                    "css_module_link_color",
                     colorfield.fields.ColorField(
-                        default=b'#FFFFFF',
-                        help_text=b'#FFFFFF',
+                        default="#FFFFFF",
+                        help_text="#FFFFFF",
                         max_length=10,
-                        verbose_name=b'link color',
-                        blank=True)),
-                ('css_module_link_hover_color',
+                        verbose_name="link color",
+                        blank=True,
+                    ),
+                ),
+                (
+                    "css_module_link_hover_color",
                     colorfield.fields.ColorField(
-                        default=b'#C9F0DD',
-                        help_text=b'#C9F0DD',
+                        default="#C9F0DD",
+                        help_text="#C9F0DD",
                         max_length=10,
-                        verbose_name=b'link hover color',
-                        blank=True)),
-                ('css_module_rounded_corners',
+                        verbose_name="link hover color",
+                        blank=True,
+                    ),
+                ),
+                (
+                    "css_module_rounded_corners",
                     models.BooleanField(
                         default=True,
-                        verbose_name=b'rounded corners')),
-                ('css_generic_link_color',
+                        verbose_name="rounded corners",
+                    ),
+                ),
+                (
+                    "css_generic_link_color",
                     colorfield.fields.ColorField(
-                        default=b'#0C3C26',
-                        help_text=b'#0C3C26',
+                        default="#0C3C26",
+                        help_text="#0C3C26",
                         max_length=10,
-                        verbose_name=b'link color',
-                        blank=True)),
-                ('css_generic_link_hover_color',
+                        verbose_name="link color",
+                        blank=True,
+                    ),
+                ),
+                (
+                    "css_generic_link_hover_color",
                     colorfield.fields.ColorField(
-                        default=b'#156641',
-                        help_text=b'#156641',
+                        default="#156641",
+                        help_text="#156641",
                         max_length=10,
-                        verbose_name=b'link hover color',
-                        blank=True)),
-                ('css_save_button_background_color',
+                        verbose_name="link hover color",
+                        blank=True,
+                    ),
+                ),
+                (
+                    "css_save_button_background_color",
                     colorfield.fields.ColorField(
-                        default=b'#0C4B33',
-                        help_text=b'#0C4B33',
+                        default="#0C4B33",
+                        help_text="#0C4B33",
                         max_length=10,
-                        verbose_name=b'background color',
-                        blank=True)),
-                ('css_save_button_background_hover_color',
+                        verbose_name="background color",
+                        blank=True,
+                    ),
+                ),
+                (
+                    "css_save_button_background_hover_color",
                     colorfield.fields.ColorField(
-                        default=b'#0C3C26',
-                        help_text=b'#0C3C26',
+                        default="#0C3C26",
+                        help_text="#0C3C26",
                         max_length=10,
-                        verbose_name=b'background hover color',
-                        blank=True)),
-                ('css_save_button_text_color',
+                        verbose_name="background hover color",
+                        blank=True,
+                    ),
+                ),
+                (
+                    "css_save_button_text_color",
                     colorfield.fields.ColorField(
-                        default=b'#FFFFFF',
-                        help_text=b'#FFFFFF',
+                        default="#FFFFFF",
+                        help_text="#FFFFFF",
                         max_length=10,
-                        verbose_name=b'text color',
-                        blank=True)),
-                ('css_delete_button_background_color',
+                        verbose_name="text color",
+                        blank=True,
+                    ),
+                ),
+                (
+                    "css_delete_button_background_color",
                     colorfield.fields.ColorField(
-                        default=b'#BA2121',
-                        help_text=b'#BA2121',
+                        default="#BA2121",
+                        help_text="#BA2121",
                         max_length=10,
-                        verbose_name=b'background color',
-                        blank=True)),
-                ('css_delete_button_background_hover_color',
+                        verbose_name="background color",
+                        blank=True,
+                    ),
+                ),
+                (
+                    "css_delete_button_background_hover_color",
                     colorfield.fields.ColorField(
-                        default=b'#A41515',
-                        help_text=b'#A41515',
+                        default="#A41515",
+                        help_text="#A41515",
                         max_length=10,
-                        verbose_name=b'background hover color',
-                        blank=True)),
-                ('css_delete_button_text_color',
+                        verbose_name="background hover color",
+                        blank=True,
+                    ),
+                ),
+                (
+                    "css_delete_button_text_color",
                     colorfield.fields.ColorField(
-                        default=b'#FFFFFF',
-                        help_text=b'#FFFFFF',
+                        default="#FFFFFF",
+                        help_text="#FFFFFF",
                         max_length=10,
-                        verbose_name=b'text color',
-                        blank=True)),
-                ('css',
+                        verbose_name="text color",
+                        blank=True,
+                    ),
+                ),
+                (
+                    "css",
                     models.TextField(
-                        blank=True)),
-                ('list_filter_dropdown',
+                        blank=True,
+                    ),
+                ),
+                (
+                    "list_filter_dropdown",
                     models.BooleanField(
-                        default=False)),
+                        default=False,
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'Theme',
-                'verbose_name_plural': 'Themes',
+                "verbose_name": "Theme",
+                "verbose_name_plural": "Themes",
             },
         ),
     ]
