@@ -134,6 +134,17 @@ class ThemeAdmin(admin.ModelAdmin):
             },
         ),
         (
+            _("Menu"),
+            {
+                "classes": ("wide",),
+                "fields": (
+                    "css_header_menu_color",
+                    "css_header_menu_accent_color",
+                    "css_module_menu_enabled",
+                ),
+            },
+        ),
+        (
             _("Navigation Bar"),
             {
                 "classes": ("wide",),
