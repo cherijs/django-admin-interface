@@ -404,6 +404,7 @@
     .admin-interface.list-filter-sticky .module.filtered #changelist-filter {
         position: sticky;
         top: 8px;
+        right: 8px;
         float: right;
         z-index: 30;
         display: flex;
