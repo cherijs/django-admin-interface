@@ -1,0 +1,6 @@
+{% load admin_interface_tags static %}
+
+{% if theme.list_filter_collapsible %}
+<link rel="stylesheet" href="{% get_admin_interface_static 'admin_interface/collapsible-filter/collapsible-filter.css' %}">
+<script src="{% get_admin_interface_static 'admin_interface/collapsible-filter/collapsible-filter.js' %}"></script>
+{% endif %}
