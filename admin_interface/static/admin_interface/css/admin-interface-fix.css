@@ -7,6 +7,14 @@
     min-height: auto;
 }
 
+/* Remove browser focus-visible outline on content anchors */
+.admin-interface #content:focus-visible,
+.admin-interface #content-main:focus-visible,
+.admin-interface a[name]:focus-visible,
+.admin-interface [tabindex]:focus-visible:not(input):not(select):not(textarea):not(button):not(a[href]) {
+    outline: none;
+}
+
 /* Django 6 compat: base.css sets height:100% on #container which clips content */
 .admin-interface #container {
     height: auto;
