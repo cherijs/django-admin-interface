@@ -2,6 +2,12 @@
     overflow-x: hidden;
 }
 
+/* Django 6 compat: base.css sets height:100% on #container which clips content */
+.admin-interface #container {
+    height: auto;
+}
+
+
 /* fix login */
 .admin-interface.login #container {
     width: 100%;
