@@ -15,7 +15,8 @@
 @media (min-width: 1024px) {
     .admin-interface .language-chooser {
         position: static;
-        margin-left: 20px;
+        margin-left: 5px;
+        vertical-align: middle;
     }
 }
 
@@ -31,7 +32,17 @@
 
 .admin-interface .language-chooser select {
     width: auto;
-    min-width: auto;
+    min-width: auto !important;
+    max-width: 120px;
+    padding: 2px 4px;
+    font-size: 13px;
+    height: auto;
+    outline: none;
+}
+
+.admin-interface .language-chooser select:focus {
+    outline: none;
+    box-shadow: none;
 }
 
 .admin-interface .language-chooser.minimal .language-chooser-select-form::after {

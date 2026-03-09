@@ -1,5 +1,10 @@
 .admin-interface {
-    overflow-x: hidden;
+    overflow-x: clip;
+}
+
+/* Django 6 compat: changelists.css min-height breaks sticky filter positioning */
+.admin-interface.list-filter-sticky .change-list .filtered {
+    min-height: auto;
 }
 
 /* Django 6 compat: base.css sets height:100% on #container which clips content */
@@ -118,7 +123,9 @@
     margin-top: 10px;
     margin-bottom: 10px;
     white-space: nowrap;
-    align-self: flex-start;
+    align-self: center;
+    display: flex;
+    align-items: center;
 }
 
 .admin-interface #user-tools br {
