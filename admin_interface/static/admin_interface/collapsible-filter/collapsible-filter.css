@@ -4,10 +4,10 @@
         position: relative;
     }
 
-    /* Collapsed filter: absolute, top-right, just the header visible */
+    /* Collapsed filter: absolute, top-right, pulled up to object-tools row */
     .admin-interface #changelist-filter.collapsed {
         position: absolute !important;
-        top: 0;
+        top: -45px;
         right: 0;
         z-index: 40;
         min-width: auto !important;
