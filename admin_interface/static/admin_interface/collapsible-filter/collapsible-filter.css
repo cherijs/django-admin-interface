@@ -1,0 +1,41 @@
+@media (min-width: 768px) {
+    /* Make the flex container a positioning context */
+    .admin-interface .changelist-form-container {
+        position: relative;
+    }
+
+    /* Collapsed filter: absolute, top-right, just the header visible */
+    .admin-interface #changelist-filter.collapsed {
+        position: absolute !important;
+        top: 0;
+        right: 0;
+        z-index: 40;
+        min-width: auto !important;
+        flex: none !important;
+        max-height: none !important;
+        overflow: visible !important;
+        margin: 0 !important;
+    }
+
+    .admin-interface #changelist-filter.collapsed h2 {
+        border-radius: var(--admin-interface-module-border-radius);
+        padding: 8px 10px !important;
+        margin: 0;
+    }
+
+    /* Hide everything except the header */
+    .admin-interface #changelist-filter.collapsed > *:not(h2) {
+        display: none !important;
+    }
+
+    /* Table expands to full width when filter is collapsed */
+    .admin-interface .changelist-form-container:has(#changelist-filter.collapsed) > div {
+        max-width: 100% !important;
+    }
+
+    /* Cursor hint on the h2 */
+    .admin-interface.list-filter-collapsible #changelist-filter h2 {
+        cursor: pointer;
+        user-select: none;
+    }
+}

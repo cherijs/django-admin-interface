@@ -184,6 +184,7 @@ class ThemeAdmin(admin.ModelAdmin):
                     "list_filter_dropdown",
                     "list_filter_sticky",
                     "list_filter_removal_links",
+                    "list_filter_collapsible",
                 ),
             },
         ),

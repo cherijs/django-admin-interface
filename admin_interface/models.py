@@ -370,6 +370,10 @@ class Theme(models.Model):
         default=True,
         verbose_name=_("quick remove links for active filters at top of sidebar"),
     )
+    list_filter_collapsible = models.BooleanField(
+        default=True,
+        verbose_name=_("collapsible"),
+    )
 
     foldable_apps = models.BooleanField(
         default=True,

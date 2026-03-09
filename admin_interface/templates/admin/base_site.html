@@ -150,6 +150,7 @@
 {% include "admin_interface/foldable-apps.html" %}
 {% include "admin_interface/related-modal.html" %}
 {% include "admin_interface/collapsible-inlines.html" %}
+{% include "admin_interface/collapsible-filter.html" %}
 {% endblock blockbots %}
 
 {% block extrahead %}
@@ -166,6 +167,7 @@ admin-interface
 {% if theme.form_pagination_sticky %} sticky-pagination {% endif %}
 {% if theme.list_filter_highlight %} list-filter-highlight {% endif %}
 {% if theme.list_filter_sticky %} list-filter-sticky {% endif %}
+{% if theme.list_filter_collapsible %} list-filter-collapsible {% endif %}
 
 {% if adminform and inline_admin_formsets %}
 {% admin_interface_use_changeform_tabs adminform inline_admin_formsets as admin_interface_use_changeform_tabs %}
