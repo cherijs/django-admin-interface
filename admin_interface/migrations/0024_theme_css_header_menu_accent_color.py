@@ -4,6 +4,10 @@ import colorfield.fields
 from django.db import migrations
 
 
+# css_header_menu_accent_color is also added by 0033_theme_menu_fields
+# on the parallel branch. Use IF NOT EXISTS to avoid DuplicateColumn.
+
+
 class Migration(migrations.Migration):
 
     dependencies = [
@@ -11,9 +15,25 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
-        migrations.AddField(
-            model_name='theme',
-            name='css_header_menu_accent_color',
-            field=colorfield.fields.ColorField(blank=True, default='#0C3C26', help_text='#0C3C26', max_length=10, verbose_name='menu accent color'),
+        migrations.SeparateDatabaseAndState(
+            state_operations=[
+                migrations.AddField(
+                    model_name='theme',
+                    name='css_header_menu_accent_color',
+                    field=colorfield.fields.ColorField(
+                        blank=True,
+                        default='#0C3C26',
+                        help_text='#0C3C26',
+                        max_length=10,
+                        verbose_name='menu accent color',
+                    ),
+                ),
+            ],
+            database_operations=[
+                migrations.RunSQL(
+                    sql="ALTER TABLE admin_interface_theme ADD COLUMN IF NOT EXISTS css_header_menu_accent_color varchar(10) DEFAULT '#0C3C26' NOT NULL",
+                    reverse_sql=migrations.RunSQL.noop,
+                ),
+            ],
         ),
     ]
