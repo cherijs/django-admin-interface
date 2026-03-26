@@ -5,7 +5,7 @@
         --accent: #f5dd5d;
         --primary-fg: #fff;
         --body-fg: #333;
-        --body-bg: #fff;
+        --body-bg: #f8f8f8;
         --body-medium-color: #444;
         --body-quiet-color: #666;
         --body-loud-color: #000;
@@ -25,8 +25,8 @@
         --message-success-bg: #dfd;
         --message-warning-bg: #ffc;
         --message-error-bg: #ffefef;
-        --darkened-bg: #f8f8f8;
-        --selected-bg: #e4e4e4;
+        --darkened-bg: #f3f3f3;
+        --selected-bg: #ededed;
         --selected-row: #ffc;
         --button-fg: #fff;
         --button-bg: var(--primary);
@@ -45,6 +45,41 @@
 
 .admin-interface {
     overflow-x: hidden;
+    font-family: var(--font-family-primary);
+}
+#content {
+    background-color: var(--body-bg);
+}
+.admin-interface.change-list #content > h1 {
+    /* display: none; */
+}
+
+.admin-interface #changelist #toolbar {
+    border: 1px solid var(--hairline-color);
+    border-radius: 4px;
+}
+
+/* Input focus - use module color */
+.admin-interface input:focus-visible,
+.admin-interface textarea:focus-visible,
+.admin-interface select:focus-visible {
+    outline-color: var(--admin-interface-module-background-color);
+}
+
+/* Fix sort options vertical alignment */
+.admin-interface table thead th.sorted .sortoptions {
+    padding: 6px 5px 0 5px;
+}
+
+/* Hide actions bar until a checkbox is selected */
+.admin-interface #changelist .actions,
+.admin-interface.sticky-actions #changelist .actions {
+    display: none;
+}
+
+.admin-interface #changelist .actions.show,
+.admin-interface.sticky-actions #changelist .actions.show {
+    display: flex;
 }
 
 .admin-interface #header {
