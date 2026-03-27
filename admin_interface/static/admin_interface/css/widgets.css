@@ -12,6 +12,21 @@
 }
 /* end-fix */
 
+/* fix fieldset with legend + select[multiple] alignment in aligned forms */
+.admin-interface .aligned fieldset > legend + div {
+    margin-left: 170px;
+}
+.admin-interface .aligned fieldset > legend + div .help {
+    margin-left: 0;
+    padding-left: 0;
+}
+.admin-interface .aligned fieldset > legend + div select[multiple],
+.admin-interface .aligned fieldset > legend + div select[size] {
+    max-width: 610px;
+    box-sizing: border-box;
+}
+/* end-fix */
+
 /* fix flex container for boolean fields */
 .admin-interface .flex-container.checkbox-row {
     align-items: center;
