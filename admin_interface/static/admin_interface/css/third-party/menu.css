@@ -9,13 +9,14 @@ html.debug * {
 
 /*@f:off*/
 :root .admin-interface {
-    --admin-interface-css-header-menu-border-color: {{ theme.css_header_menu_color }};
-    --admin-interface-css-header-sub-menu-border-color: {% color_variant theme.css_header_menu_color 10 %};
-    --admin-interface-css-header-menu-background-color: {% color_variant theme.css_header_menu_color 15 %};
-    --admin-interface-css-header-menu-sub-nav-background-color: {% color_variant theme.css_header_menu_color 30 %};
+    --admin-interface-css-header-menu-border-color: {% color_variant theme.css_header_menu_color 5 %};
+    --admin-interface-css-header-sub-menu-border-color: {% color_variant theme.css_header_menu_color 8 %};
+    --admin-interface-css-header-menu-background-color: {{ theme.css_header_menu_color }};
+    --admin-interface-css-header-menu-sub-nav-background-color: {{ theme.css_header_menu_color }};
+    --admin-interface-css-header-menu-sub_nav_hover_background_color: {% color_variant theme.css_header_menu_color 8 %};
 
     --admin-interface-css-header-menu-accent-color: {{ theme.css_header_menu_accent_color }};
-    --admin-interface-css-header-sub-menu-link-color: {% color_variant theme.css_module_background_color 5 %};
+    --admin-interface-css-header-sub-menu-link-color: {{ theme.css_generic_link_color }};
 
     --admin-interface-css-header-menu-link-color: {% color_variant theme.css_header_menu_color 120 %};
     --admin-interface-css-header-menu-hover-color: {{ theme.css_header_text_color }};
@@ -94,14 +95,19 @@ html.debug * {
     float: left;
 }
 
-#suit-nav > ul > li a {
+#suit-nav > ul > li a,
+#suit-nav > ul > li a:link,
+#suit-nav > ul > li a:visited,
+#suit-nav > ul > li a:hover,
+#suit-nav > ul > li a:active {
     display: block;
     color: var(--admin-interface-css-header-menu-link-color);
+    text-decoration: none !important;
 }
 
-#suit-nav > ul > li a:hover {
-    color: var(--admin-interface-css-header-menu-hover-color);
-    text-decoration: none;
+#suit-nav > ul > li:not(.active) a:hover {
+    color: #fff !important;
+    text-decoration: none !important;
 }
 
 #suit-nav > ul > li:first-child > a {
@@ -172,8 +178,6 @@ html.debug * {
     display: block;
     padding: 0.52083rem 1.33929rem;
     border-bottom: 1px solid var(--admin-interface-css-header-sub-menu-border-color);
-    border-left: 1px solid var(--admin-interface-css-header-menu-border-color);
-
 }
 
 #suit-nav > ul > li > ul > li:last-of-type > a {
@@ -182,6 +186,20 @@ html.debug * {
 
 #suit-nav > ul > li > ul > li > a:hover {
     background-color: var(--admin-interface-css-header-menu-sub_nav_hover_background_color);
+    text-decoration: none;
+}
+
+#suit-nav > ul > li > ul > li > a,
+#suit-nav > ul > li > ul > li > a:link,
+#suit-nav > ul > li > ul > li > a:visited {
+    color: rgba(255, 255, 255, 0.7) !important;
+    text-decoration: none !important;
+}
+
+#suit-nav > ul > li > ul > li > a:hover,
+#suit-nav > ul > li > ul > li > a:active {
+    color: #fff !important;
+    text-decoration: none !important;
 }
 
 #suit-nav > ul.suit-nav-right {

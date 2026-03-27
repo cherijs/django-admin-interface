@@ -41,13 +41,14 @@
             --admin-interface-related-modal-background-color: {{ theme.related_modal_background_color }};
             --admin-interface-related-modal-background-opacity: {{ theme.related_modal_background_opacity }};
 
-            --admin-interface-css-header-menu-border-color: {{ theme.css_header_menu_color }};
-            --admin-interface-css-header-sub-menu-border-color: {% color_variant theme.css_header_menu_color 10 %};
-            --admin-interface-css-header-menu-background-color: {% color_variant theme.css_header_menu_color 15 %};
-            --admin-interface-css-header-menu-sub-nav-background-color: {% color_variant theme.css_header_menu_color 30 %};
+            --admin-interface-css-header-menu-border-color: {% color_variant theme.css_header_menu_color 5 %};
+            --admin-interface-css-header-sub-menu-border-color: {% color_variant theme.css_header_menu_color 8 %};
+            --admin-interface-css-header-menu-background-color: {{ theme.css_header_menu_color }};
+            --admin-interface-css-header-menu-sub-nav-background-color: {{ theme.css_header_menu_color }};
+            --admin-interface-css-header-menu-sub_nav_hover_background_color: {% color_variant theme.css_header_menu_color 8 %};
 
             --admin-interface-css-header-menu-accent-color: {{ theme.css_header_menu_accent_color }};
-            --admin-interface-css-header-sub-menu-link-color: {% color_variant theme.css_module_background_color 5 %};
+            --admin-interface-css-header-sub-menu-link-color: {{ theme.css_generic_link_color }};
 
             --admin-interface-css-header-menu-link-color: {% color_variant theme.css_header_menu_color 120 %};
             --admin-interface-css-header-menu-hover-color: {{ theme.css_header_text_color }};

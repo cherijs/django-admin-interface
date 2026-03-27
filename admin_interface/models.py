@@ -53,8 +53,8 @@ class Theme(models.Model):
     )
     title_color = ColorField(
         blank=True,
-        default="#F5DD5D",
-        help_text="#F5DD5D",
+        default="#FFFFFF",
+        help_text="#FFFFFF",
         max_length=10,
         verbose_name=_("color"),
     )
@@ -159,15 +159,15 @@ class Theme(models.Model):
 
     css_header_background_color = ColorField(
         blank=True,
-        default="#0C4B33",
-        help_text="#0C4B33",
+        default="#252830",
+        help_text="#252830",
         max_length=10,
         verbose_name=_("background color"),
     )
     css_header_text_color = ColorField(
         blank=True,
-        default="#44B78B",
-        help_text="#44B78B",
+        default="#5bb0ed",
+        help_text="#5bb0ed",
         max_length=10,
         verbose_name=_("text color"),
     )
@@ -180,23 +180,23 @@ class Theme(models.Model):
     )
     css_header_link_hover_color = ColorField(
         blank=True,
-        default="#C9F0DD",
-        help_text="#C9F0DD",
+        default="#5bb0ed",
+        help_text="#5bb0ed",
         max_length=10,
         verbose_name=_("link hover color"),
     )
 
     css_header_menu_color = ColorField(
         blank=True,
-        default='#0C4B33',
-        help_text='#0C4B33',
+        default='#383d4b',
+        help_text='#383d4b',
         max_length=10,
         verbose_name=_('menu color'))
 
     css_header_menu_accent_color = ColorField(
         blank=True,
-        default='#0C3C26',
-        help_text='#0C3C26',
+        default='#4298DE',
+        help_text='#4298DE',
         max_length=10,
         verbose_name=_('menu accent color'))
 
@@ -206,15 +206,15 @@ class Theme(models.Model):
 
     css_module_background_color = ColorField(
         blank=True,
-        default="#44B78B",
-        help_text="#44B78B",
+        default="#5d6478",
+        help_text="#5d6478",
         max_length=10,
         verbose_name=_("background color"),
     )
     css_module_background_selected_color = ColorField(
         blank=True,
-        default="#FFFFCC",
-        help_text="#FFFFCC",
+        default="#f1f1f1",
+        help_text="#f1f1f1",
         max_length=10,
         verbose_name=_("background selected color"),
     )
@@ -241,8 +241,8 @@ class Theme(models.Model):
     )
     css_module_link_hover_color = ColorField(
         blank=True,
-        default="#C9F0DD",
-        help_text="#C9F0DD",
+        default="#5bb0ed",
+        help_text="#5bb0ed",
         max_length=10,
         verbose_name=_("link hover color"),
     )
@@ -253,37 +253,37 @@ class Theme(models.Model):
 
     css_generic_link_color = ColorField(
         blank=True,
-        default="#0C3C26",
-        help_text="#0C3C26",
+        default="#0d64a2",
+        help_text="#0d64a2",
         max_length=10,
         verbose_name=_("link color"),
     )
     css_generic_link_hover_color = ColorField(
         blank=True,
-        default="#156641",
-        help_text="#156641",
+        default="#4298DE",
+        help_text="#4298DE",
         max_length=10,
         verbose_name=_("link hover color"),
     )
     css_generic_link_active_color = ColorField(
         blank=True,
-        default="#29B864",
-        help_text="#29B864",
+        default="#5bb0ed",
+        help_text="#5bb0ed",
         max_length=10,
         verbose_name=_("link active color"),
     )
 
     css_save_button_background_color = ColorField(
         blank=True,
-        default="#0C4B33",
-        help_text="#0C4B33",
+        default="#0d64a2",
+        help_text="#0d64a2",
         max_length=10,
         verbose_name=_("background color"),
     )
     css_save_button_background_hover_color = ColorField(
         blank=True,
-        default="#0C3C26",
-        help_text="#0C3C26",
+        default="#252830",
+        help_text="#252830",
         max_length=10,
         verbose_name=_("background hover color"),
     )
@@ -408,20 +408,6 @@ class Theme(models.Model):
         verbose_name=_("collapsible tabular inlines collapsed"),
     )
 
-    css_header_menu_color = ColorField(
-        blank=True,
-        default="#0C4B33",
-        help_text="#0C4B33",
-        max_length=10,
-        verbose_name=_("menu color"),
-    )
-    css_header_menu_accent_color = ColorField(
-        blank=True,
-        default="#0C3C26",
-        help_text="#0C3C26",
-        max_length=10,
-        verbose_name=_("menu accent color"),
-    )
     css_module_menu_enabled = models.BooleanField(
         default=True,
         verbose_name=_("menu enabled"),

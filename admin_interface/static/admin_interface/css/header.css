@@ -32,6 +32,22 @@
     margin-bottom: 10px;
     white-space: nowrap;
     align-self: flex-start;
+    text-transform: none !important;
+    font-size: 0.8125rem !important;
+    letter-spacing: normal !important;
+}
+
+.admin-interface #user-tools a,
+.admin-interface #user-tools button,
+.admin-interface #user-tools strong {
+    text-transform: none !important;
+    letter-spacing: normal !important;
+    font-size: 0.8125rem !important;
+    margin: 0 0.25rem;
+}
+
+.admin-interface #user-tools {
+    color: #687086;
 }
 
 .admin-interface #user-tools .theme-toggle {

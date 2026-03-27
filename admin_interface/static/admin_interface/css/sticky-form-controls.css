@@ -207,14 +207,14 @@
         text-align: center;
     }
 
-    /* Secondary save buttons */
+    /* Secondary save buttons: outlined */
     .admin-interface.sidebar-submit.change-form:not(.popup) #submit-sidebar input[type="submit"]:not(.default) {
-        background-color: var(--admin-interface-module-background-color) !important;
-        color: var(--admin-interface-module-text-color) !important;
-        border: none !important;
+        background-color: var(--body-bg) !important;
+        color: var(--body-fg) !important;
+        border: 1px solid var(--border-color) !important;
     }
     .admin-interface.sidebar-submit.change-form:not(.popup) #submit-sidebar input[type="submit"]:not(.default):hover {
-        opacity: 0.85;
+        background-color: var(--darkened-bg) !important;
     }
 
     /* Delete link: light red destructive style */
@@ -225,25 +225,24 @@
 
     .admin-interface.sidebar-submit.change-form:not(.popup) #submit-sidebar p.deletelink-box a,
     .admin-interface.sidebar-submit.change-form:not(.popup) #submit-sidebar a.deletelink {
-        display: block !important;
+        display: inline !important;
         float: none !important;
-        width: 100%;
-        box-sizing: border-box;
-        padding: 7px 12px !important;
-        background-color: var(--delete-button-bg, #ba2121) !important;
+        background: none !important;
         background-image: none !important;
-        color: #fff !important;
+        color: var(--admin-interface-generic-link-color) !important;
         border: none !important;
-        border-radius: 8px !important;
+        border-radius: 0 !important;
         text-indent: 0 !important;
-        text-align: center;
+        text-align: left;
+        padding: 4px 0 !important;
         margin: 0 !important;
         font-size: 0.8125rem;
         line-height: 1.5;
     }
     .admin-interface.sidebar-submit.change-form:not(.popup) #submit-sidebar p.deletelink-box a:hover,
     .admin-interface.sidebar-submit.change-form:not(.popup) #submit-sidebar a.deletelink:hover {
-        background-color: var(--delete-button-hover-bg, #a41515) !important;
+        color: var(--delete-button-bg, #ba2121) !important;
+        background: none !important;
     }
 
     /* Object-tools in Tools card */
