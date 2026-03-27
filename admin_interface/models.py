@@ -464,6 +464,10 @@ class Theme(models.Model):
         default=True,
         verbose_name=_("sticky pagination"),
     )
+    form_submit_sidebar = models.BooleanField(
+        default=False,
+        verbose_name=_("sidebar submit"),
+    )
 
     objects = ThemeQuerySet.as_manager()
 

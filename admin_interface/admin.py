@@ -171,6 +171,7 @@ class ThemeAdmin(admin.ModelAdmin):
                 "fields": (
                     "form_actions_sticky",
                     "form_submit_sticky",
+                    "form_submit_sidebar",
                     "form_pagination_sticky",
                 ),
             },
