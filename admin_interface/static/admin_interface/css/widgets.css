@@ -58,13 +58,19 @@
 .admin-interface .flex-container.checkbox-row {
     align-items: center;
 }
-.admin-interface .aligned .flex-container.checkbox-row,
-.admin-interface .aligned .flex-container.checkbox-row + .help {
+.admin-interface .aligned .flex-container.checkbox-row {
     margin-left: 170px;
 }
-.admin-interface .wide.aligned .flex-container.checkbox-row,
+.admin-interface .aligned .flex-container.checkbox-row + .help {
+    margin-left: 170px;
+    padding-left: 0;
+}
+.admin-interface .wide.aligned .flex-container.checkbox-row {
+    margin-left: 210px;
+}
 .admin-interface .wide.aligned .flex-container.checkbox-row + .help {
     margin-left: 210px;
+    padding-left: 0;
 }
 .admin-interface .flex-container.checkbox-row label.vCheckboxLabel {
     margin-top: 0 !important;
