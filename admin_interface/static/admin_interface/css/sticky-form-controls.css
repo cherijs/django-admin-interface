@@ -122,12 +122,18 @@
         gap: 24px;
     }
 
-    .admin-interface.sidebar-submit.change-form:not(.popup) form#content {
+    .admin-interface.sidebar-submit.change-form:not(.popup) #content-main > form {
         flex: 1;
         min-width: 0;
     }
 
-    /* suppress sticky-submit bottom bar when sidebar-submit is active */
+    /* object-tools is moved into sidebar by JS; reset its float/margin in flex context as fallback */
+    .admin-interface.sidebar-submit.change-form:not(.popup) #content-main > .object-tools {
+        float: none;
+        margin-top: 0;
+    }
+
+    /* suppress sticky-submit bottom bar when sidebar-submit is also active */
     .admin-interface.sidebar-submit.sticky-submit.change-form .submit-row {
         position: static !important;
         width: 100% !important;
@@ -135,16 +141,17 @@
         padding: 0 !important;
     }
 
-    #submit-sidebar {
+    .admin-interface.sidebar-submit.change-form:not(.popup) #submit-sidebar {
         width: 220px;
         flex-shrink: 0;
         position: sticky;
         top: 16px;
+        margin-left: auto;
     }
 
-    #submit-sidebar .submit-row {
-        display: flex;
-        flex-direction: column;
+    .admin-interface.sidebar-submit.change-form:not(.popup) #submit-sidebar .submit-row {
+        display: flex !important;
+        flex-direction: column !important;
         width: 100%;
         box-sizing: border-box;
         background: var(--body-bg);
@@ -154,10 +161,9 @@
         overflow: hidden;
         margin: 0;
         gap: 0;
-        flex-direction: column !important;
     }
 
-    #submit-sidebar .submit-row input[type="submit"] {
+    .admin-interface.sidebar-submit.change-form:not(.popup) #submit-sidebar .submit-row input[type="submit"] {
         width: 100%;
         margin: 0;
         display: block;
@@ -168,11 +174,11 @@
         border-bottom: 1px solid var(--border-color) !important;
     }
 
-    #submit-sidebar .submit-row input[name="_save"] { order: 1; }
-    #submit-sidebar .submit-row input[name="_continue"] { order: 2; }
-    #submit-sidebar .submit-row input[name="_addanother"] { order: 3; }
+    .admin-interface.sidebar-submit.change-form:not(.popup) #submit-sidebar .submit-row input[name="_save"] { order: 1; }
+    .admin-interface.sidebar-submit.change-form:not(.popup) #submit-sidebar .submit-row input[name="_continue"] { order: 2; }
+    .admin-interface.sidebar-submit.change-form:not(.popup) #submit-sidebar .submit-row input[name="_addanother"] { order: 3; }
 
-    #submit-sidebar .submit-row p.deletelink-box {
+    .admin-interface.sidebar-submit.change-form:not(.popup) #submit-sidebar .submit-row p.deletelink-box {
         order: 4;
         margin: 0;
         padding: 0;
@@ -180,17 +186,19 @@
         border-top: 1px solid var(--border-color);
     }
 
-    #submit-sidebar .submit-row p.deletelink-box a {
+    .admin-interface.sidebar-submit.change-form:not(.popup) #submit-sidebar .submit-row p.deletelink-box a {
         display: block;
         padding: 10px 16px;
     }
 
-    #submit-sidebar .object-tools {
+    .admin-interface.sidebar-submit.change-form:not(.popup) #submit-sidebar .object-tools {
         margin-top: 8px;
         float: none;
         padding: 0;
         display: flex;
         flex-direction: column;
+        justify-content: initial;
+        align-items: initial;
         border: 1px solid var(--border-color);
         border-radius: 4px;
         overflow: hidden;
@@ -198,17 +206,17 @@
         gap: 0;
     }
 
-    #submit-sidebar .object-tools li {
+    .admin-interface.sidebar-submit.change-form:not(.popup) #submit-sidebar .object-tools li {
         margin: 0;
         list-style: none;
         border-bottom: 1px solid var(--border-color);
     }
 
-    #submit-sidebar .object-tools li:last-child {
+    .admin-interface.sidebar-submit.change-form:not(.popup) #submit-sidebar .object-tools li:last-child {
         border-bottom: none;
     }
 
-    #submit-sidebar .object-tools a {
+    .admin-interface.sidebar-submit.change-form:not(.popup) #submit-sidebar .object-tools a {
         display: block;
         text-align: center;
         padding: 10px 16px;
@@ -220,8 +228,8 @@
         color: var(--link-fg);
     }
 
-    #submit-sidebar .object-tools a:hover,
-    #submit-sidebar .object-tools a:focus {
+    .admin-interface.sidebar-submit.change-form:not(.popup) #submit-sidebar .object-tools a:hover,
+    .admin-interface.sidebar-submit.change-form:not(.popup) #submit-sidebar .object-tools a:focus {
         background-color: var(--darkened-bg);
         color: var(--link-hover-color);
     }
