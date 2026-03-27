@@ -1,6 +1,8 @@
 {% extends 'admin/base.html' %}
 {% load admin_interface_tags menu_tags i18n static %}
 
+{% block dark-mode-vars %}{% endblock %}
+
 {% block title %}
 {% get_admin_interface_theme as theme %}
 {% if title %}{{ title }} | {% endif %}{% if theme.title %}{% translate theme.title %}{% else %}{{ site_title|default:_('Django administration') }}{% endif %}

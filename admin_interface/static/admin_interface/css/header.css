@@ -51,7 +51,7 @@
 }
 
 .admin-interface #user-tools .theme-toggle {
-    transform: scale(0.7) !important;
+    display: none !important;
 }
 
 .admin-interface #user-tools br {
