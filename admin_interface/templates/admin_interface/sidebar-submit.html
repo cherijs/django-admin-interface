@@ -15,37 +15,60 @@
         var submitRows = form.querySelectorAll('.submit-row');
         if (!submitRows.length) return;
 
-        // Create sidebar container
-        var sidebar = document.createElement('div');
-        sidebar.id = 'submit-sidebar';
-
-        // Add "Actions" header
-        var header = document.createElement('div');
-        header.className = 'submit-sidebar-header';
-        var title = document.createElement('p');
-        title.className = 'submit-sidebar-title';
-        title.textContent = 'Actions';
-        header.appendChild(title);
-        sidebar.appendChild(header);
-
-        // Move first submit-row into sidebar and associate inputs with the form
-        var submitRow = submitRows[0];
         var formId = form.id;
-        submitRow.querySelectorAll('input[type="submit"]').forEach(function (input) {
-            input.setAttribute('form', formId);
-        });
-        sidebar.appendChild(submitRow);
+        var submitRow = submitRows[0];
 
-        // Remove remaining submit-rows (bottom duplicate)
-        for (var i = submitRows.length - 1; i >= 1; i--) {
+        // Extract individual buttons from the submit row
+        var savePrimary = submitRow.querySelector('input[name="_save"]');
+        var saveContinue = submitRow.querySelector('input[name="_continue"]');
+        var saveAddAnother = submitRow.querySelector('input[name="_addanother"]');
+        var deleteBox = submitRow.querySelector('p.deletelink-box');
+        var deleteLink = !deleteBox ? submitRow.querySelector('a.deletelink') : null;
+
+        // Associate inputs with the form (they'll be moved outside <form>)
+        [savePrimary, saveContinue, saveAddAnother].forEach(function (input) {
+            if (input) input.setAttribute('form', formId);
+        });
+
+        // Remove all submit-rows from DOM
+        for (var i = submitRows.length - 1; i >= 0; i--) {
             submitRows[i].remove();
         }
 
-        // Move object-tools (History, etc.) into sidebar
         var objectTools = contentMain.querySelector('.object-tools');
-        if (objectTools) {
-            sidebar.appendChild(objectTools);
+
+        // --- Build sidebar ---
+        var sidebar = document.createElement('div');
+        sidebar.id = 'submit-sidebar';
+
+        // Actions card
+        var actionsCard = document.createElement('div');
+        actionsCard.className = 'submit-card submit-actions-card';
+
+        var actionsBody = document.createElement('div');
+        actionsBody.className = 'submit-card-body';
+
+        [savePrimary, saveContinue, saveAddAnother].forEach(function (btn) {
+            if (btn) actionsBody.appendChild(btn);
+        });
+
+        if (deleteBox) {
+            actionsBody.appendChild(deleteBox);
+        } else if (deleteLink) {
+            actionsBody.appendChild(deleteLink);
         }
+
+        // Tools section (separated by border)
+        if (objectTools) {
+            var toolsBody = document.createElement('div');
+            toolsBody.className = 'submit-card-body submit-tools-section';
+            toolsBody.appendChild(objectTools);
+            actionsCard.appendChild(actionsBody);
+            actionsCard.appendChild(toolsBody);
+        } else {
+            actionsCard.appendChild(actionsBody);
+        }
+        sidebar.appendChild(actionsCard);
 
         contentMain.appendChild(sidebar);
     });
