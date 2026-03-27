@@ -173,18 +173,16 @@
 
 .admin-interface #header #user-tools a,
 .admin-interface #header #user-tools #logout-form button {
-    color: var(--admin-interface-header-text-color);
+    color: var(--admin-interface-header-text-color) !important;
     text-decoration: none !important;
-    border-bottom: none !important;
 }
 
 .admin-interface #header #user-tools a:hover,
 .admin-interface #header #user-tools a:active,
 .admin-interface #header #user-tools #logout-form button:hover,
 .admin-interface #header #user-tools #logout-form button:active {
-    color: #fff;
+    color: #fff !important;
     text-decoration: none !important;
-    border-bottom-color: transparent;
 }
 
 .admin-interface #header #user-tools button.theme-toggle svg {
