@@ -4,6 +4,7 @@ from django.db import models
 from django.db.models.signals import post_delete, post_save, pre_save
 from django.dispatch import receiver
 from django.utils.encoding import force_str
+from django.utils.safestring import mark_safe
 from django.utils.translation import gettext_lazy as _
 
 from .cache import del_cached_active_theme
@@ -424,6 +425,23 @@ class Theme(models.Model):
     css_module_menu_enabled = models.BooleanField(
         default=True,
         verbose_name=_("menu enabled"),
+        help_text=mark_safe(
+            "Enable the navigation menu bar. "
+            "To customise menu items, set <code>ADMIN_INTERFACE_MENU</code> in your settings "
+            "to a subclass of <code>MenuManager</code>, e.g.:<br><br>"
+            "<code>ADMIN_INTERFACE_MENU = 'myapp.admin_menu.MenuConfig'</code>"
+            "<pre style='margin-top:8px'>"
+            "from admin_interface.menu import ChildItem, MenuManager, ParentItem\n\n"
+            "class MenuConfig(MenuManager):\n"
+            "    def __init__(self, available_apps, context, request):\n"
+            "        super().__init__(available_apps, context, request)\n"
+            "        self.menu = [\n"
+            "            ParentItem('My App', children=[\n"
+            "                ChildItem('Items', model='myapp.item'),\n"
+            "            ]),\n"
+            "        ]"
+            "</pre>"
+        ),
     )
 
     recent_actions_visible = models.BooleanField(
