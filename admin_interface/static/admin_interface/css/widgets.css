@@ -63,6 +63,13 @@
 }
 /* end-fix */
 
+/* fix select width to match text inputs */
+.admin-interface .flex-container select:not([multiple]):not([size]) {
+    width: 21em;
+    box-sizing: border-box;
+}
+/* end-fix */
+
 /* fix user reset password form */
 .admin-interface #user_form #id_password p bdi::after {
     content: "";
