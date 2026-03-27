@@ -9,6 +9,13 @@
 /* fix generic flex container */
 .admin-interface .flex-container {
     width: 100%;
+    align-items: center;
+}
+/* end-fix */
+
+/* fix inline display element after input in flex-container (e.g. raw_id current value) */
+.admin-interface .flex-container > strong {
+    margin-left: 10px;
 }
 /* end-fix */
 
@@ -30,6 +37,10 @@
 /* fix flex container for boolean fields */
 .admin-interface .flex-container.checkbox-row {
     align-items: center;
+}
+.admin-interface .aligned .flex-container.checkbox-row,
+.admin-interface .aligned .flex-container.checkbox-row + .help {
+    margin-left: 170px;
 }
 .admin-interface .flex-container.checkbox-row label.vCheckboxLabel {
     margin-top: 0 !important;
@@ -57,16 +68,63 @@
 .admin-interface .flex-container label + input[type="password"],
 .admin-interface .flex-container label + input[type="email"],
 .admin-interface .flex-container label + input[type="url"],
-.admin-interface .flex-container label + input[type="number"],
 .admin-interface .flex-container label + input[type="tel"] {
     height: 1.375em;
 }
 /* end-fix */
 
-/* fix select width to match text inputs */
-.admin-interface .flex-container select:not([multiple]):not([size]) {
+/* fix unclassed text inputs width to match vTextField */
+.admin-interface .flex-container input[type="text"]:not([class]) {
+    width: 20em;
+}
+/* end-fix */
+
+/* fix select and number input width to match text inputs */
+.admin-interface .flex-container select:not([multiple]):not([size]),
+.admin-interface .flex-container input[type="number"] {
     width: 21em;
     box-sizing: border-box;
+}
+/* end-fix */
+
+/* fix unclassed textarea width to match vLargeTextField */
+.admin-interface .flex-container textarea:not([class]) {
+    width: 610px;
+    box-sizing: border-box;
+}
+/* end-fix */
+
+/* fix calendarbox and clockbox overridden by .module { width: 100% } */
+.admin-interface .calendarbox,
+.admin-interface .clockbox {
+    width: auto;
+}
+/* end-fix */
+
+/* fix date/clock icon size */
+.admin-interface .datetimeshortcuts .date-icon,
+.admin-interface .datetimeshortcuts .clock-icon {
+    width: 16px;
+    height: 16px;
+    background-size: 16px;
+    vertical-align: middle;
+}
+.admin-interface .datetimeshortcuts a:focus .date-icon,
+.admin-interface .datetimeshortcuts a:hover .date-icon {
+    background-position: 0px -16px;
+}
+.admin-interface .datetimeshortcuts a:focus .clock-icon,
+.admin-interface .datetimeshortcuts a:hover .clock-icon {
+    background-position: 0px -16px;
+}
+/* end-fix */
+
+/* fix calendar cancel button color */
+.admin-interface .calendar-cancel {
+    background: var(--admin-interface-delete-button-background-color);
+}
+.admin-interface .calendar-cancel a {
+    color: var(--admin-interface-delete-button-text-color);
 }
 /* end-fix */
 
