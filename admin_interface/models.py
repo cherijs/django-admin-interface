@@ -440,6 +440,7 @@ class Theme(models.Model):
             "        self.menu = [\n"
             "            ParentItem('My App', children=[\n"
             "                ChildItem('Items', model='myapp.item'),\n"
+            "                ChildItem('External', url='https://example.com', target_blank=True),\n"
             "            ]),\n"
             "        ]"
             "</pre>"
