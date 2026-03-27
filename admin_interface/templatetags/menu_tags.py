@@ -7,6 +7,7 @@ from django.contrib.admin import AdminSite
 from django.http import HttpRequest
 from django.utils.module_loading import import_string
 
+from admin_interface.cache import get_cached_active_theme, set_cached_active_theme
 from admin_interface.menu import MenuManager
 
 if django.VERSION < (1, 10):
@@ -33,7 +34,18 @@ def get_menu(context, request):
 
     is_enabled = False
 
-    if hasattr(settings, "ADMIN_INTERFACE_ENABLE_MENU"):
+    try:
+        theme = get_cached_active_theme()
+        if not theme:
+            from admin_interface.models import Theme
+            theme = Theme.objects.get_active()
+            set_cached_active_theme(theme)
+        if theme and theme.css_module_menu_enabled:
+            is_enabled = True
+    except Exception:
+        pass
+
+    if not is_enabled and hasattr(settings, "ADMIN_INTERFACE_ENABLE_MENU"):
         is_enabled = settings.ADMIN_INTERFACE_ENABLE_MENU
 
     if not is_enabled:

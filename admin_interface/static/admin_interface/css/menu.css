@@ -9,6 +9,12 @@ html.debug * {
     display: flex;
     background-color: var(--admin-interface-css-header-menu-background-color);
     flex-shrink: initial !important;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+}
+
+#suit-nav > ul {
+    flex-wrap: nowrap;
 }
 
 #suit-nav > ul {
@@ -25,9 +31,6 @@ html.debug * {
 
 @media (max-width: 767px) {
 
-    #suit-nav {
-        overflow: scroll;
-    }
     #suit-nav ul li a {
         white-space: nowrap;
     }
@@ -91,7 +94,7 @@ html.debug * {
     position: relative;
     padding: 0.69444rem 1.33929rem;
     border-left: 1px solid var(--admin-interface-css-header-menu-border-color);
-
+    white-space: nowrap;
 }
 
 #suit-nav > ul > li > a:after {
@@ -151,7 +154,7 @@ html.debug * {
     padding: 0.52083rem 1.33929rem;
     border-bottom: 1px solid var(--admin-interface-css-header-sub-menu-border-color);
     border-left: 1px solid var(--admin-interface-css-header-menu-border-color);
-
+    white-space: nowrap;
 }
 
 #suit-nav > ul > li > ul > li:last-of-type > a {
