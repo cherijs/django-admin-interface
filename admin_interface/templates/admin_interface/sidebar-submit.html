@@ -19,6 +19,15 @@
         var sidebar = document.createElement('div');
         sidebar.id = 'submit-sidebar';
 
+        // Add "Actions" header
+        var header = document.createElement('div');
+        header.className = 'submit-sidebar-header';
+        var title = document.createElement('p');
+        title.className = 'submit-sidebar-title';
+        title.textContent = 'Actions';
+        header.appendChild(title);
+        sidebar.appendChild(header);
+
         // Move first submit-row into sidebar and associate inputs with the form
         var submitRow = submitRows[0];
         var formId = form.id;

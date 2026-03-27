@@ -127,7 +127,7 @@
         min-width: 0;
     }
 
-    /* object-tools is moved into sidebar by JS; reset its float/margin in flex context as fallback */
+    /* fallback: if JS hasn't moved object-tools yet, reset its float */
     .admin-interface.sidebar-submit.change-form:not(.popup) #content-main > .object-tools {
         float: none;
         margin-top: 0;
@@ -141,96 +141,142 @@
         padding: 0 !important;
     }
 
+    /* Card container */
     .admin-interface.sidebar-submit.change-form:not(.popup) #submit-sidebar {
-        width: 220px;
+        width: 240px;
         flex-shrink: 0;
         position: sticky;
         top: 16px;
         margin-left: auto;
+        background: var(--body-bg);
+        border: 1px solid var(--border-color);
+        border-radius: 12px;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06), 0 4px 16px rgba(0, 0, 0, 0.06);
+        overflow: hidden;
     }
 
+    /* Actions header */
+    .admin-interface.sidebar-submit.change-form:not(.popup) #submit-sidebar .submit-sidebar-header {
+        padding: 14px 20px;
+        border-bottom: 1px solid var(--border-color);
+    }
+
+    .admin-interface.sidebar-submit.change-form:not(.popup) #submit-sidebar .submit-sidebar-title {
+        margin: 0;
+        font-size: 0.9375rem;
+        font-weight: 600;
+        color: var(--body-loud-color);
+    }
+
+    /* Submit buttons area: padded, stacked with gap */
     .admin-interface.sidebar-submit.change-form:not(.popup) #submit-sidebar .submit-row {
         display: flex !important;
         flex-direction: column !important;
+        padding: 16px 20px;
+        gap: 8px;
+        background: transparent;
+        border: none !important;
+        border-radius: 0 !important;
+        overflow: visible;
+        margin: 0;
         width: 100%;
         box-sizing: border-box;
-        background: var(--body-bg);
-        border: 1px solid var(--border-color);
-        border-radius: 4px;
-        padding: 0;
-        overflow: hidden;
-        margin: 0;
-        gap: 0;
     }
 
+    /* All submit buttons: full-width, rounded */
     .admin-interface.sidebar-submit.change-form:not(.popup) #submit-sidebar .submit-row input[type="submit"] {
         width: 100%;
         margin: 0;
+        float: none;
         display: block;
         box-sizing: border-box;
-        border-radius: 0;
-        padding: 10px 16px;
-        border: none;
-        border-bottom: 1px solid var(--border-color) !important;
+        border-radius: 10px !important;
+        padding: 8px 16px;
+        border: none !important;
+        cursor: pointer;
+        font-size: 0.875rem;
+        line-height: 1.5;
+    }
+
+    /* Secondary save buttons: light outline style */
+    .admin-interface.sidebar-submit.change-form:not(.popup) #submit-sidebar .submit-row input[type="submit"]:not(.default) {
+        background-color: var(--body-bg) !important;
+        color: var(--body-fg) !important;
+        border: 1px solid var(--border-color) !important;
+    }
+    .admin-interface.sidebar-submit.change-form:not(.popup) #submit-sidebar .submit-row input[type="submit"]:not(.default):hover {
+        background-color: var(--darkened-bg) !important;
     }
 
     .admin-interface.sidebar-submit.change-form:not(.popup) #submit-sidebar .submit-row input[name="_save"] { order: 1; }
     .admin-interface.sidebar-submit.change-form:not(.popup) #submit-sidebar .submit-row input[name="_continue"] { order: 2; }
     .admin-interface.sidebar-submit.change-form:not(.popup) #submit-sidebar .submit-row input[name="_addanother"] { order: 3; }
 
+    /* Delete link: light red background like destructive/10 */
     .admin-interface.sidebar-submit.change-form:not(.popup) #submit-sidebar .submit-row p.deletelink-box {
-        order: 4;
+        order: 99;
         margin: 0;
         padding: 0;
+    }
+
+    .admin-interface.sidebar-submit.change-form:not(.popup) #submit-sidebar .submit-row p.deletelink-box a,
+    .admin-interface.sidebar-submit.change-form:not(.popup) #submit-sidebar .submit-row a.deletelink {
+        display: block !important;
+        float: none !important;
+        width: 100%;
+        box-sizing: border-box;
+        padding: 8px 16px !important;
+        background-color: rgba(186, 33, 33, 0.08) !important;
+        background-image: none !important;
+        color: var(--delete-button-bg, #ba2121) !important;
+        border: 1px solid transparent !important;
+        border-radius: 10px !important;
+        text-indent: 0 !important;
         text-align: center;
-        border-top: 1px solid var(--border-color);
+        margin: 0 !important;
+        font-size: 0.875rem;
+        line-height: 1.5;
+    }
+    .admin-interface.sidebar-submit.change-form:not(.popup) #submit-sidebar .submit-row p.deletelink-box a:hover,
+    .admin-interface.sidebar-submit.change-form:not(.popup) #submit-sidebar .submit-row a.deletelink:hover {
+        background-color: rgba(186, 33, 33, 0.15) !important;
     }
 
-    .admin-interface.sidebar-submit.change-form:not(.popup) #submit-sidebar .submit-row p.deletelink-box a {
-        display: block;
-        padding: 10px 16px;
-    }
-
+    /* Object-tools (History etc.) — separated by top border, padded */
     .admin-interface.sidebar-submit.change-form:not(.popup) #submit-sidebar .object-tools {
-        margin-top: 8px;
+        margin: 0;
+        padding: 0 20px 16px;
         float: none;
-        padding: 0;
         display: flex;
         flex-direction: column;
         justify-content: initial;
         align-items: initial;
-        border: 1px solid var(--border-color);
-        border-radius: 4px;
-        overflow: hidden;
-        background: var(--body-bg);
-        gap: 0;
+        gap: 8px;
+        border-top: 1px solid var(--border-color);
+        padding-top: 12px;
     }
 
     .admin-interface.sidebar-submit.change-form:not(.popup) #submit-sidebar .object-tools li {
         margin: 0;
         list-style: none;
-        border-bottom: 1px solid var(--border-color);
-    }
-
-    .admin-interface.sidebar-submit.change-form:not(.popup) #submit-sidebar .object-tools li:last-child {
-        border-bottom: none;
     }
 
     .admin-interface.sidebar-submit.change-form:not(.popup) #submit-sidebar .object-tools a {
         display: block;
         text-align: center;
-        padding: 10px 16px;
-        font-weight: normal;
+        padding: 8px 16px;
         font-size: 0.875rem;
-        border-radius: 0;
-        background: transparent;
+        border-radius: 10px;
+        background: var(--darkened-bg);
+        border: 1px solid var(--border-color);
         white-space: nowrap;
         color: var(--link-fg);
+        line-height: 1.5;
     }
 
     .admin-interface.sidebar-submit.change-form:not(.popup) #submit-sidebar .object-tools a:hover,
     .admin-interface.sidebar-submit.change-form:not(.popup) #submit-sidebar .object-tools a:focus {
-        background-color: var(--darkened-bg);
+        background-color: var(--border-color);
         color: var(--link-hover-color);
     }
 }
