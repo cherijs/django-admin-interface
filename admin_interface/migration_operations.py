@@ -15,6 +15,11 @@ class AddFieldIfNotExists(migrations.AddField):
 
     def database_forwards(self, app_label, schema_editor, from_state, to_state):
         model = to_state.apps.get_model(app_label, self.model_name)
+        if not self.allow_migrate_model(schema_editor.connection.alias, model):
+            # Mirror AddField's router guard - on databases that never carry
+            # this app (e.g. a secondary registry database) the table does not
+            # exist and must not be introspected.
+            return
         table = model._meta.db_table
         with schema_editor.connection.cursor() as cursor:
             columns = [
@@ -29,6 +34,8 @@ class AddFieldIfNotExists(migrations.AddField):
 
     def database_backwards(self, app_label, schema_editor, from_state, to_state):
         model = from_state.apps.get_model(app_label, self.model_name)
+        if not self.allow_migrate_model(schema_editor.connection.alias, model):
+            return
         table = model._meta.db_table
         with schema_editor.connection.cursor() as cursor:
             columns = [
