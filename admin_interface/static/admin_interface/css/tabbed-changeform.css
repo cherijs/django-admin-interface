@@ -22,7 +22,6 @@
     flex-grow: 0;
     cursor: pointer;
     border: 1px solid #eee;
-    border-bottom: none;
     border-radius: 3px 3px 0 0;
     background: #f8f8f8;
     padding: 7px 14px 8px;
@@ -54,6 +53,7 @@
 .admin-interface .tabbed-changeform-tabs .tabbed-changeform-tablink.active:hover {
     background: #fff;
     border-color: #eee;
+    border-bottom: none;
     color: #525252;
     font-weight: 700;
     padding: 8px 14px 9px;
