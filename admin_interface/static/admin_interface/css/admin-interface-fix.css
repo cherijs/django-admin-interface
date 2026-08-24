@@ -643,3 +643,246 @@ body.admin-interface .paginator a.showall:visited {
         margin-top: 5px;
     }
 }
+
+/* ---- Skin rules migrated from the Abillio project admin.css ---- */
+html, body {
+  overscroll-behavior: none !important;
+}
+
+.sticky {
+    display: none !important;
+}
+
+.visually-hidden {
+    display: none;
+}
+/* Django 6 pagination - match old inline style */
+#changelist #changelist-form .paginator {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.929rem;
+    padding: 10px 0;
+    line-height: 22px;
+    margin-top: 1rem;
+}
+
+#changelist #changelist-form .paginator ul {
+    list-style: none;
+    margin: 0;
+    margin-right: 6px;
+    padding: 0;
+    display: flex;
+    gap: 0;
+}
+
+#changelist #changelist-form .paginator ul li {
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+}
+
+#changelist #changelist-form .paginator ul li a {
+    font-size: 1rem;
+    display: inline-block;
+    padding: .5rem;
+    background-color: #fff;
+    color: #417690;
+    line-height: normal;
+    min-width: 2.3rem;
+    text-align: center;
+    margin-left: -.1rem;
+    text-decoration: none;
+}
+
+#changelist #changelist-form .paginator ul li:last-child a {
+    margin-right: 1rem;
+}
+
+#changelist #changelist-form .paginator ul li a:hover {
+    background-color: #f9f9f9;
+    text-decoration: none;
+}
+
+#changelist #changelist-form .paginator ul li a[aria-current="page"] {
+    background-color: #5d6478;
+    color: #fff;
+    font-weight: bold;
+    cursor: default;
+}
+pre.json {
+    white-space: pre-wrap;
+    word-break: break-all;
+    width: 100%;
+    overflow: auto;
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.5);
+    border: 1px solid #ddd;
+    padding: 4px;
+    border-radius: 4px;
+    font-size: 11px;
+    margin-bottom: 0;
+}
+.skip-to-content-link, .form-group .form-control-label + div .form-control-static:empty {
+  display: none;
+}
+
+.form-group .form-control-label + div .form-control-static:empty {
+  display: none;
+}
+#changelist .changelist-form-container {
+  flex: 1;
+  display: flex;
+  align-items: flex-start;
+  width: 100%;
+}
+
+#changelist .changelist-form-container > div {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+#changelist #changelist-form .actions span:not(.hidden) {
+  display: inherit !important;
+}
+/*#toolbar + #changelist-form {
+  margin-right: 2rem;
+}*/
+
+
+pre.json.scroll {
+    max-width: 100%;
+    max-height: 600px;
+}
+table tbody tr.inactive td, table tbody tr.inactive td *,
+table tbody tr.inactive td a, table tbody tr.inactive th,
+table tbody tr.inactive th *,
+table tbody tr.inactive th a {
+    color: #999 !important
+}
+
+table tbody tr.deleted td,
+table tbody tr.deleted td *,
+table tbody tr.deleted td a,
+table tbody tr.deleted th,
+table tbody tr.deleted th *,
+table tbody tr.deleted th a {
+    text-decoration: line-through
+}
+
+table tbody tr.danger td, table tbody tr.danger td *,
+table tbody tr.danger td a, table tbody tr.danger th,
+table tbody tr.danger th *,
+table tbody tr.danger th a {
+    color: #ba4747 !important
+}
+
+table tbody tr.warning td, table tbody tr.warning td *,
+table tbody tr.warning td a, table tbody tr.warning th,
+table tbody tr.warning th *,
+table tbody tr.warning th a {
+    color: #a8267b !important
+}
+
+table tbody tr.strong td,
+table tbody tr.strong td *,
+table tbody tr.strong td a,
+table tbody tr.strong th,
+table tbody tr.strong th *,
+table tbody tr.strong th a {
+    font-weight: bold !important;
+}
+
+table tbody tr.green td,
+table tbody tr.green td *,
+table tbody tr.green td a,
+table tbody tr.green th,
+table tbody tr.green th *,
+table tbody tr.green th a {
+    color: #04885e;
+}
+ul.errorlist {
+    padding: 0 !important;
+    margin: 0;
+    list-style: none;
+    display: inline;
+}
+
+ul.errorlist li {
+    display: inline;
+    margin: 0;
+    color: #E04F3C;
+    padding: 0;
+}
+
+ul.errorlist + input {
+    margin-right: 0.25rem;
+}
+
+td[class^='field-']:has(ul.errorlist), td[class*=' field-']:has(ul.errorlist) {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    border-bottom: 0 !important;
+}
+.widget-CheckboxSelectMultiple ul {
+  list-style: none !important;
+  padding: 0;
+}
+#changelist-search > div {
+    display: block !important;
+    width: auto !important;
+    max-width: none !important;
+}
+.datetime {
+    display: flex;
+}
+.datetime label {
+    display: none;
+}
+
+.related-widget-wrapper-link:hover {
+    opacity: 1;
+}
+.related-widget-wrapper-link {
+    margin-left: 5px;
+    opacity: 0.8;
+}
+.related-widget-wrapper-link img {
+    max-width: 16px;
+}
+.related-widget-wrapper-link.change-related img {
+    max-height: 14px;
+}
+/* Kill italic everywhere in admin — project convention: no italic */
+.admin-interface,
+.admin-interface *,
+.help,
+.help *,
+p.help,
+div.help,
+div.help *,
+fieldset h2,
+fieldset h3,
+.module h2,
+.module caption,
+em,
+i,
+address,
+cite,
+dfn,
+var {
+    font-style: normal !important;
+}
+
+/* Kill Django 6 default underline on content links + hover/focus */
+.admin-interface a,
+.admin-interface a:link,
+.admin-interface a:visited,
+.admin-interface a:hover,
+.admin-interface a:focus,
+a:not([role="button"], #header a, #nav-sidebar a, #content-main.app-list a, .object-tools a),
+a:focus,
+a:hover {
+    text-decoration: none !important;
+}
