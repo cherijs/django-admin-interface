@@ -17,6 +17,21 @@
             });
         },
 
+        openFirstErrorTab: function() {
+            // After a failed save, land the operator on the tab that actually
+            // holds the error instead of a clean-looking active tab.
+            var active = document.querySelector(".tabbed-changeform-tablink.active");
+            if (active && active.classList.contains("error")) {
+                return;
+            }
+            var firstError = document.querySelector(".tabbed-changeform-tablink.error");
+            if (firstError) {
+                var tabName = firstError.id.replace("tablink-", "");
+                this.openTabByName(tabName);
+                this.scrollTabsToTabByName(tabName);
+            }
+        },
+
         openTab: function (event, tabName) {
             this.openTabByName(tabName);
         },
@@ -82,6 +97,7 @@
     document.addEventListener('DOMContentLoaded', function() {
         scope.tabbedChangeForm.hightlightTabsWithErrors();
         scope.tabbedChangeForm.openTabByLocationHash();
+        scope.tabbedChangeForm.openFirstErrorTab();
     }, false);
 
 }(window.AdminInterface = window.AdminInterface || {}));
