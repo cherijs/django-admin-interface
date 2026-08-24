@@ -58,3 +58,9 @@
 .admin-interface #content form select {
     background-color: #fff;
 }
+
+/* Align field error messages with the input column (label 160px + 10px gap). */
+.admin-interface form .aligned .form-row ul.errorlist {
+    margin-left: 170px;
+    padding-left: 0;
+}
