@@ -25,11 +25,20 @@
 }
 /* endfix */
 
-/* fix help-text horizontal alignment when using show-fieldsets-as-tabs / show-inlines-as-tabs options - #317 */
-.admin-interface.show-fieldsets-as-tabs fieldset > .form-row .help,
-.admin-interface.show-inlines-as-tabs .inline-related > fieldset .help {
-    margin-left: 0;
-    padding-left: 0;
+/* fix help-text horizontal alignment when using show-fieldsets-as-tabs / show-inlines-as-tabs options - #317.
+   The tabbed fieldset include now emits Django's stock aligned markup, so the
+   standard help indent applies; mobile keeps the stacked layout. */
+@media (min-width: 768px) {
+    .admin-interface.show-fieldsets-as-tabs fieldset > .form-row .help,
+    .admin-interface.show-inlines-as-tabs .inline-related > fieldset .help {
+        margin-left: 160px;
+        padding-left: 10px;
+    }
+    .admin-interface.show-fieldsets-as-tabs fieldset > .form-row .checkbox-row + .help,
+    .admin-interface.show-inlines-as-tabs .inline-related > fieldset .checkbox-row + .help {
+        margin-left: 170px;
+        padding-left: 0;
+    }
 }
 .admin-interface.show-fieldsets-as-tabs fieldset > .form-row div:has(.related-widget-wrapper .selector) + .help,
 .admin-interface.show-inlines-as-tabs .inline-related > fieldset div:has(.related-widget-wrapper .selector) + .help {
@@ -37,3 +46,15 @@
     width: 100%;
 }
 /* endfix */
+
+/* No underline on the last row of a fieldset - the module edge already closes the block. */
+.admin-interface fieldset.module .form-row:last-of-type {
+    border-bottom: none !important;
+}
+
+/* White input backgrounds. */
+.admin-interface form input:not([type=checkbox]):not([type=radio]):not([type=submit]):not([type=button]):not([type=file]),
+.admin-interface form textarea,
+.admin-interface form select {
+    background-color: #fff;
+}
