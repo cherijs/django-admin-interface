@@ -53,8 +53,8 @@
 }
 
 /* White input backgrounds. */
-.admin-interface form input:not([type=checkbox]):not([type=radio]):not([type=submit]):not([type=button]):not([type=file]),
-.admin-interface form textarea,
-.admin-interface form select {
+.admin-interface #content form input:not([type=checkbox]):not([type=radio]):not([type=submit]):not([type=button]):not([type=file]),
+.admin-interface #content form textarea,
+.admin-interface #content form select {
     background-color: #fff;
 }
