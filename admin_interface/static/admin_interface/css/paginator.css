@@ -1,24 +1,62 @@
-.admin-interface #changelist .changelist-footer .paginator {
-    margin-top: -1px; /* merge 2 borders into 1 */
+/* Boxed pagination: compact numbered boxes, dark current page. */
+.admin-interface #changelist .paginator {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 10px 0;
+    font-size: 13px;
     line-height: 1.5em;
+    margin-top: 1rem;
 }
 
-.admin-interface #changelist .changelist-footer .paginator a,
-.admin-interface #changelist .changelist-footer .paginator a:link,
-.admin-interface #changelist .changelist-footer .paginator a:visited,
-.admin-interface #changelist .changelist-footer .paginator a[aria-current="page"],
-.admin-interface #changelist .changelist-footer .paginator .this-page {
-    padding: 7px 12px;
+.admin-interface #changelist .paginator ul {
+    display: flex;
+    gap: 4px;
+    margin: 0 6px 0 0;
+    padding: 0;
+    list-style: none;
 }
 
-.admin-interface #changelist .changelist-footer .paginator a,
-.admin-interface #changelist .changelist-footer .paginator a[aria-current="page"],
-.admin-interface #changelist .changelist-footer .paginator .this-page {
-    margin-left: 0px;
+.admin-interface #changelist .paginator ul li {
+    display: inline-block;
+    margin: 0;
+    padding: 6px 4px;
+    color: #888;
 }
 
-body.admin-interface #changelist .changelist-footer .paginator a.showall,
-body.admin-interface #changelist .changelist-footer .paginator a.showall:link,
-body.admin-interface #changelist .changelist-footer .paginator a.showall:visited {
-    margin-left: 20px;
+.admin-interface #changelist .paginator ul li:has(> a) {
+    padding: 0;
+}
+
+.admin-interface #changelist .paginator ul li a,
+.admin-interface #changelist .paginator ul li a:link,
+.admin-interface #changelist .paginator ul li a:visited {
+    display: inline-block;
+    padding: 6px 10px;
+    min-width: 2rem;
+    text-align: center;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    color: #417690;
+    text-decoration: none;
+    margin: 0;
+}
+
+.admin-interface #changelist .paginator ul li a:hover {
+    background: #f6f6f6;
+}
+
+.admin-interface #changelist .paginator ul li a[aria-current="page"] {
+    background: #5d6478;
+    border-color: #5d6478;
+    color: #fff;
+    font-weight: 700;
+    cursor: default;
+}
+
+body.admin-interface #changelist .paginator a.showall,
+body.admin-interface #changelist .paginator a.showall:link,
+body.admin-interface #changelist .paginator a.showall:visited {
+    margin-left: 12px;
 }
