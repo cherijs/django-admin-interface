@@ -53,8 +53,8 @@
                 {% include "admin/includes/headerless_fieldset.html" %}
                 {% admin_interface_tab_inlines adminform tab_name inline_admin_formsets as tab_inline_formsets %}
                 {% for inline_admin_formset in tab_inline_formsets %}
-                    {% get_admin_interface_inline_template inline_admin_formset.opts.template as inline_template %}
-                    {% include inline_template %}
+                    {# placed inlines keep their heading - the tab button does not name them #}
+                    {% include inline_admin_formset.opts.template %}
                 {% endfor %}
             </div>
             {% endwith %}
