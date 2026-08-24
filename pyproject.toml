@@ -22,8 +22,6 @@ classifiers = [
     "Development Status :: 5 - Production/Stable",
     "Environment :: Web Environment",
     "Framework :: Django",
-    "Framework :: Django :: 4.0",
-    "Framework :: Django :: 4.1",
     "Framework :: Django :: 4.2",
     "Framework :: Django :: 5.0",
     "Framework :: Django :: 5.1",
@@ -43,7 +41,6 @@ classifiers = [
 ]
 dependencies = [
     "django-colorfield >= 0.8.0, < 1.0.0",
-    "python-slugify >= 7.0.0, < 9.0.0",
 ]
 dynamic = ["version"]
 maintainers = [
