@@ -32,7 +32,8 @@
             {% endif %}
 
             {% if show_inlines_as_tabs %}
-                {% for inline_admin_formset in inline_admin_formsets %}
+                {% admin_interface_unplaced_inlines adminform inline_admin_formsets as unplaced_inline_formsets %}
+                {% for inline_admin_formset in unplaced_inline_formsets %}
                 {% with tab_name=inline_admin_formset.opts.verbose_name_plural %}
                 <button type="button" id="tablink-{{ tab_name|admin_interface_slugify }}" class="tabbed-changeform-tablink" onclick="AdminInterface.tabbedChangeForm.openTab(event, '{{ tab_name|admin_interface_slugify }}')">
                     {{ tab_name|capfirst }}
@@ -50,6 +51,11 @@
             {% with tab_name=fieldset.name|default_if_none:opts.verbose_name %}
             <div id="tabcontent-{{ tab_name|admin_interface_slugify }}" class="tabbed-changeform-tabcontent {{ forloop.counter0|default:'active' }}">
                 {% include "admin/includes/headerless_fieldset.html" %}
+                {% admin_interface_tab_inlines adminform tab_name inline_admin_formsets as tab_inline_formsets %}
+                {% for inline_admin_formset in tab_inline_formsets %}
+                    {% get_admin_interface_inline_template inline_admin_formset.opts.template as inline_template %}
+                    {% include inline_template %}
+                {% endfor %}
             </div>
             {% endwith %}
             {% endfor %}
@@ -64,7 +70,8 @@
         {% endif %}
 
         {% if show_inlines_as_tabs %}
-        {% for inline_admin_formset in inline_admin_formsets %}
+        {% admin_interface_unplaced_inlines adminform inline_admin_formsets as unplaced_inline_formsets %}
+        {% for inline_admin_formset in unplaced_inline_formsets %}
         {% with tab_name=inline_admin_formset.opts.verbose_name_plural %}
         <div id="tabcontent-{{ tab_name|admin_interface_slugify }}" class="tabbed-changeform-tabcontent">
             {% get_admin_interface_inline_template inline_admin_formset.opts.template as inline_template %}

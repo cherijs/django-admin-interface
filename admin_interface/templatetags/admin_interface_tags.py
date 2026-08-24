@@ -195,3 +195,37 @@ def admin_interface_use_changeform_tabs(adminform, inline_forms):
 @register.filter
 def admin_interface_slugify(name):
     return slugify(str(name or ""))
+
+
+@register.simple_tag()
+def admin_interface_tab_inlines(adminform, tab_name, inline_admin_formsets):
+    """Inlines the model admin places inside the given fieldset tab.
+
+    A model admin may declare ``changeform_inline_tabs`` — a mapping of the
+    inline's ``verbose_name_plural`` to the fieldset tab name it should render
+    in — to mix fields and inlines in one tab (the classic admin-tabs layout):
+
+        changeform_inline_tabs = {"Invoice items": "Money"}
+
+    Unmapped inlines keep their own tabs.
+    """
+    placement = getattr(adminform.model_admin, "changeform_inline_tabs", None) or {}
+    normalized = {str(k).strip().lower(): str(v).strip().lower() for k, v in placement.items()}
+    target = str(tab_name).strip().lower()
+    return [
+        inline
+        for inline in inline_admin_formsets
+        if normalized.get(str(inline.opts.verbose_name_plural).strip().lower()) == target
+    ]
+
+
+@register.simple_tag()
+def admin_interface_unplaced_inlines(adminform, inline_admin_formsets):
+    """Inlines NOT claimed by ``changeform_inline_tabs`` — they get own tabs."""
+    placement = getattr(adminform.model_admin, "changeform_inline_tabs", None) or {}
+    normalized = {str(k).strip().lower() for k in placement}
+    return [
+        inline
+        for inline in inline_admin_formsets
+        if str(inline.opts.verbose_name_plural).strip().lower() not in normalized
+    ]
