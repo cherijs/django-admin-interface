@@ -3,10 +3,12 @@
 import colorfield.fields
 from django.db import migrations, models
 
+from admin_interface.migration_operations import AddFieldIfNotExists
 
 # css_header_menu_color and css_module_menu_enabled are also added by
-# 0033_theme_menu_fields on the parallel branch. Use IF NOT EXISTS to
-# avoid DuplicateColumn errors regardless of migration execution order.
+# 0033_theme_menu_fields on the parallel branch. AddFieldIfNotExists skips
+# the database change when the column is already present, regardless of
+# migration execution order, and works on every backend.
 
 
 class Migration(migrations.Migration):
@@ -16,40 +18,20 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
-        migrations.SeparateDatabaseAndState(
-            state_operations=[
-                migrations.AddField(
-                    model_name='theme',
-                    name='css_header_menu_color',
-                    field=colorfield.fields.ColorField(
-                        blank=True,
-                        default='#0C4B33',
-                        help_text='#0C4B33',
-                        max_length=10,
-                        verbose_name='menu color',
-                    ),
-                ),
-            ],
-            database_operations=[
-                migrations.RunSQL(
-                    sql="ALTER TABLE admin_interface_theme ADD COLUMN IF NOT EXISTS css_header_menu_color varchar(10) DEFAULT '#0C4B33' NOT NULL",
-                    reverse_sql=migrations.RunSQL.noop,
-                ),
-            ],
+        AddFieldIfNotExists(
+            model_name='theme',
+            name='css_header_menu_color',
+            field=colorfield.fields.ColorField(
+                blank=True,
+                default='#0C4B33',
+                help_text='#0C4B33',
+                max_length=10,
+                verbose_name='menu color',
+            ),
         ),
-        migrations.SeparateDatabaseAndState(
-            state_operations=[
-                migrations.AddField(
-                    model_name='theme',
-                    name='css_module_menu_enabled',
-                    field=models.BooleanField(default=True, verbose_name='show menu'),
-                ),
-            ],
-            database_operations=[
-                migrations.RunSQL(
-                    sql="ALTER TABLE admin_interface_theme ADD COLUMN IF NOT EXISTS css_module_menu_enabled boolean DEFAULT true NOT NULL",
-                    reverse_sql=migrations.RunSQL.noop,
-                ),
-            ],
+        AddFieldIfNotExists(
+            model_name='theme',
+            name='css_module_menu_enabled',
+            field=models.BooleanField(default=True, verbose_name='show menu'),
         ),
     ]
