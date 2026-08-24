@@ -11,6 +11,8 @@
     scrollbar-width: thin;
     padding: 10px 0 0 10px;
     margin-bottom: 0;
+    position: relative;
+    z-index: 2;
 }
 
 .admin-interface .tabbed-changeform-tabs .tabbed-changeform-tablink {
@@ -83,6 +85,7 @@
     border: 1px solid #eee;
     border-radius: 3px;
     padding: 10px;
+    margin-top: -1px; /* active tab covers the panel top border */
     margin-bottom: 20px;
 }
 
@@ -91,5 +94,6 @@
     border: 1px solid #eee;
     border-radius: 3px;
     padding: 10px;
+    margin-top: -1px;
     margin-bottom: 20px;
 }
