@@ -13,6 +13,10 @@
 .admin-interface .object-tools li {
     margin-bottom: 0;
 }
+/* flex gap handles spacing; Django's default li+li margin doubles it */
+.admin-interface .object-tools li + li {
+    margin-left: 0;
+}
 .admin-interface .object-tools a {
     color: #FFFFFF;
     white-space: nowrap;
