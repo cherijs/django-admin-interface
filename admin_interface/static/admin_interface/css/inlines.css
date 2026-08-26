@@ -50,6 +50,13 @@
 }
 /* end fix */
 
+/* Django's stock forms.css paints .inline-related fieldset with
+   var(--body-bg), which reads as a grey slab on the white panel — most
+   visibly inside tabbed changeforms. Inline fieldsets sit on white. */
+.admin-interface .inline-related fieldset {
+    background: #fff;
+}
+
 .admin-interface .inline-related h3 {
     padding: 6px 10px;
 }
