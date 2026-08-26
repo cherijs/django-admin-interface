@@ -79,7 +79,9 @@
     display: block;
 }
 
-/* Content of the active tab sits in a bordered panel the active tab overlaps. */
+/* Content of the active tab sits in a bordered panel the active tab overlaps.
+   Panel chrome belongs to the TOP-LEVEL tab fieldsets only — a fieldset
+   inside a stacked inline card would draw a second box within the card. */
 .admin-interface.show-fieldsets-as-tabs fieldset.module {
     background: #fff;
     border: 1px solid #eee;
@@ -87,6 +89,13 @@
     padding: 10px;
     margin-top: -1px; /* active tab covers the panel top border */
     margin-bottom: 20px;
+}
+.admin-interface.show-fieldsets-as-tabs .inline-related fieldset.module {
+    border: none;
+    border-radius: 0;
+    padding: 0;
+    margin-top: 0;
+    margin-bottom: 0;
 }
 
 .admin-interface.show-inlines-as-tabs .js-inline-admin-formset {
