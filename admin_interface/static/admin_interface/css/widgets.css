@@ -29,12 +29,17 @@
 }
 /* end-fix */
 
-/* fix fieldset with legend + select[multiple] alignment in aligned forms */
-.admin-interface .aligned fieldset > legend + div {
-    margin-left: 170px;
-}
-.admin-interface .wide.aligned fieldset > legend + div {
-    margin-left: 210px;
+/* fix fieldset with legend + select[multiple] alignment in aligned forms.
+   Gutter margins only apply on the desktop aligned layout — below 768px
+   Django stacks labels above fields and the gutter would push the widget
+   off-screen. */
+@media (min-width: 768px) {
+    .admin-interface .aligned fieldset > legend + div {
+        margin-left: 170px;
+    }
+    .admin-interface .wide.aligned fieldset > legend + div {
+        margin-left: 210px;
+    }
 }
 .admin-interface .aligned fieldset > legend + div .help {
     margin-left: 0;
@@ -58,15 +63,17 @@
 .admin-interface .flex-container.checkbox-row {
     align-items: center;
 }
-.admin-interface .aligned .flex-container.checkbox-row {
-    margin-left: 170px;
-}
-.admin-interface .aligned .flex-container.checkbox-row + .help {
-    margin-left: 170px;
-    padding-left: 0;
-}
-.admin-interface .wide.aligned .flex-container.checkbox-row {
-    margin-left: 210px;
+@media (min-width: 768px) {
+    .admin-interface .aligned .flex-container.checkbox-row {
+        margin-left: 170px;
+    }
+    .admin-interface .aligned .flex-container.checkbox-row + .help {
+        margin-left: 170px;
+        padding-left: 0;
+    }
+    .admin-interface .wide.aligned .flex-container.checkbox-row {
+        margin-left: 210px;
+    }
 }
 .admin-interface .wide.aligned .flex-container.checkbox-row + .help {
     margin-left: 210px;

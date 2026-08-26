@@ -54,10 +54,13 @@
     background-color: #fff;
 }
 
-/* Align field error messages with the input column (label 160px + 10px gap). */
-.admin-interface form .aligned .form-row ul.errorlist {
-    margin-left: 170px;
-    padding-left: 0;
+/* Align field error messages with the input column (label 160px + 10px gap).
+   Desktop aligned layout only — mobile stacks labels, no gutter. */
+@media (min-width: 768px) {
+    .admin-interface form .aligned .form-row ul.errorlist {
+        margin-left: 170px;
+        padding-left: 0;
+    }
 }
 
 /* Error text renders on the row itself - no boxed body-bg background. */
