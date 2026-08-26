@@ -67,3 +67,36 @@
 .admin-interface form ul.errorlist {
     background: transparent;
 }
+
+/* Mobile: the aligned layout has no label gutter — every value-column part
+   (inputs, selects, datetime fieldsets, readonly values, help) starts at the
+   left edge and form controls take the full row width. */
+@media (max-width: 767px) {
+    .admin-interface form .aligned .form-row fieldset > div,
+    .admin-interface form .aligned .form-row p.datetime,
+    .admin-interface form .aligned .form-row div.readonly,
+    .admin-interface form .aligned .form-row div.help,
+    .admin-interface form .aligned .form-row ul.errorlist,
+    .admin-interface form .aligned .form-row .flex-container.checkbox-row {
+        margin-left: 0 !important;
+        padding-left: 0 !important;
+    }
+    .admin-interface form .aligned .form-row input:not([type="checkbox"]):not([type="radio"]):not([type="submit"]):not([type="button"]),
+    .admin-interface form .aligned .form-row select,
+    .admin-interface form .aligned .form-row textarea {
+        margin-left: 0 !important;
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+    /* Split-datetime keeps Date/Time on their own compact lines. */
+    .admin-interface form .aligned .form-row p.datetime input {
+        width: auto;
+        max-width: 60%;
+    }
+    /* Stacked label + value: the flex row's gap would otherwise nudge the
+       value off the left edge. */
+    .admin-interface form .aligned .form-row .flex-container:not(.checkbox-row) {
+        display: block;
+    }
+}
