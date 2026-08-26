@@ -60,6 +60,12 @@
 .admin-interface .inline-related h3 {
     padding: 6px 10px;
 }
+/* Stacked cards carry no side padding on their rows any more, so the card
+   header text lines up with the field labels below it. */
+.admin-interface .inline-group[data-inline-type="stacked"] .inline-related h3 {
+    padding-left: 0;
+    padding-right: 0;
+}
 
 /* begin fix issue #12 - Inlines bad delete buttons alignement */
 .admin-interface .inline-group .tabular thead th:last-child:not([class]):not([style]) {
