@@ -60,6 +60,17 @@
 .admin-interface .inline-related h3 {
     padding: 6px 10px;
 }
+/* On mobile a stacked card draws no box of its own — the bare border with
+   padding only offsets the content on a narrow screen. Desktop keeps the
+   card frame. */
+@media (max-width: 767px) {
+    .admin-interface .inline-group[data-inline-type="stacked"] .inline-related {
+        border: none;
+        border-radius: 0;
+        padding: 0;
+    }
+}
+
 /* Stacked cards carry no side padding on their rows any more, so the card
    header text lines up with the field labels below it. */
 .admin-interface .inline-group[data-inline-type="stacked"] .inline-related h3 {
