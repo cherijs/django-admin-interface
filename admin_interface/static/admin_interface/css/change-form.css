@@ -29,11 +29,6 @@
    The tabbed fieldset include now emits Django's stock aligned markup, so the
    standard help indent applies; mobile keeps the stacked layout. */
 @media (min-width: 768px) {
-    .admin-interface.show-fieldsets-as-tabs fieldset > .form-row .help,
-    .admin-interface.show-inlines-as-tabs .inline-related > fieldset .help {
-        margin-left: 160px;
-        padding-left: 10px;
-    }
     .admin-interface.show-fieldsets-as-tabs fieldset > .form-row .checkbox-row + .help,
     .admin-interface.show-inlines-as-tabs .inline-related > fieldset .checkbox-row + .help {
         margin-left: 170px;
