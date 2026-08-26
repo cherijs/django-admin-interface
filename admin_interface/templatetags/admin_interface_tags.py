@@ -92,12 +92,38 @@ def hash_string(text):
     return sha224_hash
 
 
+_static_hash_cache = {}
+
+
+def _static_content_hash(path):
+    """Cache-busting hash derived from the file's CONTENT, not __version__.
+
+    A version-derived hash never changes between releases, so browsers keep
+    serving stale CSS after the package updates in place (git-pinned installs,
+    editable dev checkouts). Hashing the bytes makes every content change a
+    new URL. Cached per process; a broken lookup falls back to the version
+    hash rather than breaking the page.
+    """
+    cached = _static_hash_cache.get(path)
+    if cached is not None:
+        return cached
+    try:
+        from django.contrib.staticfiles import finders
+
+        absolute_path = finders.find(path)
+        with open(absolute_path, "rb") as static_file:
+            digest = hashlib.sha224(static_file.read()).hexdigest()[:16]
+    except Exception:
+        digest = hash_string(__version__)
+    _static_hash_cache[path] = digest
+    return digest
+
+
 @register.simple_tag(takes_context=False)
 def get_admin_interface_static(path):
     url = static(path)
     if not url.startswith(("https://", "http://", "//")):
-        version_hash = hash_string(__version__)
-        url = f"{url}?v={version_hash}"
+        url = f"{url}?v={_static_content_hash(path)}"
     return url
 
 
